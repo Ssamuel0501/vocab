@@ -1,0 +1,18 @@
+{
+  "version": "2026-05-01-kaoyan",
+  "total": 5047,
+  "batchSize": 500,
+  "files": [
+    "words-01.json",
+    "words-02.json",
+    "words-03.json",
+    "words-04.json",
+    "words-05.json",
+    "words-06.json",
+    "words-07.json",
+    "words-08.json",
+    "words-09.json",
+    "words-10.json",
+    "words-11.json"
+  ]
+}

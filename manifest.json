@@ -1,7 +1,7 @@
 {
   "name": "研究生英语 · 艾宾浩斯词汇记忆",
   "short_name": "英语词汇",
-  "description": "基于艾宾浩斯遗忘曲线的学术词汇记忆系统",
+  "description": "基于艾宾浩斯遗忘曲线的考研英语词汇记忆系统",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

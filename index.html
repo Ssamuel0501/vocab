@@ -19,7 +19,6 @@
 
 <style>
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-
   :root{
     --bg:#f5f7fb;--card:#fff;--text:#1e293b;--muted:#64748b;
     --line:#e5e9f2;--primary:#6366f1;--primary-soft:#eef2ff;
@@ -36,35 +35,17 @@
     --line:#334155;--primary:#818cf8;--primary-soft:#312e81;
     --shadow:0 6px 20px rgba(0,0,0,.45);
   }
-
-  html{
-    -webkit-text-size-adjust:100%;text-size-adjust:100%;
-    height:100%;
-  }
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;height:100%}
   body{
     font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
     background:var(--bg);color:var(--text);line-height:1.6;
     min-height:100vh;min-height:100dvh;
     transition:background .3s,color .3s;
-    -webkit-touch-callout:none;
-    overscroll-behavior-y:contain;
-    touch-action:manipulation;
+    -webkit-touch-callout:none;overscroll-behavior-y:contain;touch-action:manipulation;
   }
-
-  button{
-    touch-action:manipulation;
-    font-family:inherit;
-    -webkit-user-select:none;user-select:none;
-  }
-
-  input, textarea{
-    -webkit-appearance:none;
-    appearance:none;
-  }
-
-  input[type="text"], input[type="email"], input[type="password"]{
-    font-size:16px;
-  }
+  button{touch-action:manipulation;font-family:inherit;-webkit-user-select:none;user-select:none}
+  input,textarea{-webkit-appearance:none;appearance:none}
+  input[type="text"],input[type="email"],input[type="password"]{font-size:16px}
 
   @media (hover:none){
     .btn:active{transform:scale(.97);opacity:.88}
@@ -73,9 +54,7 @@
     .tab:active{opacity:.75;transform:scale(.97)}
     .sc-opt:active:not(:disabled){background:var(--primary-soft);transform:scale(.99)}
     .scope-btn:active{opacity:.82;transform:scale(.98)}
-    .tc-sound:active,.sc-sound:active,.icon-btn:active{
-      background:var(--primary);color:#fff;transform:scale(.9);
-    }
+    .tc-sound:active,.sc-sound:active,.icon-btn:active{background:var(--primary);color:#fff;transform:scale(.9)}
     .tc-reveal:active{background:var(--primary-soft);color:var(--primary)}
     .btn-mini:active{background:var(--primary);color:#fff;transform:scale(.97)}
   }
@@ -111,8 +90,7 @@
   }
 
   .update-toast{
-    position:fixed;
-    bottom:calc(16px + var(--safe-bottom));
+    position:fixed;bottom:calc(16px + var(--safe-bottom));
     left:50%;transform:translateX(-50%) translateY(140%);
     z-index:800;background:var(--card);border:1px solid var(--line);
     border-radius:16px;padding:12px 14px;
@@ -127,8 +105,7 @@
   .update-toast button{
     border:none;cursor:pointer;font-weight:700;
     padding:9px 14px;border-radius:10px;font-size:12.5px;
-    background:var(--primary);color:#fff;white-space:nowrap;flex:0 0 auto;
-    min-height:36px;
+    background:var(--primary);color:#fff;white-space:nowrap;flex:0 0 auto;min-height:36px;
   }
   .update-toast .close{background:transparent;color:var(--muted);padding:6px;font-size:16px;line-height:1;min-height:36px;min-width:36px}
 
@@ -138,36 +115,28 @@
     padding:calc(10px + var(--safe-top)) calc(14px + var(--safe-right)) 10px calc(14px + var(--safe-left));
     background:var(--card);border-bottom:1px solid var(--line);
     box-shadow:0 2px 10px rgba(15,23,42,.04);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   }
-  .brand{
-    font-size:15px;font-weight:800;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    flex:1;min-width:0;
-  }
+  .brand{font-size:15px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
   .brand span{color:var(--primary)}
   .top-right{display:flex;align-items:center;gap:6px;flex:0 0 auto}
   .pill{
     font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;
-    background:var(--primary-soft);color:var(--primary);white-space:nowrap;
-    line-height:1.3;
+    background:var(--primary-soft);color:var(--primary);white-space:nowrap;line-height:1.3;
   }
   .pill.due{background:rgba(245,158,11,.15);color:var(--warn)}
+  .pill.fire{background:linear-gradient(135deg,rgba(236,72,153,.15),rgba(245,158,11,.15));color:var(--accent)}
   .icon-btn{
     width:38px;height:38px;border:none;border-radius:50%;cursor:pointer;
     background:var(--primary-soft);color:var(--primary);font-size:16px;
-    transition:transform .2s,background .2s;
-    display:grid;place-items:center;
+    transition:transform .2s,background .2s;display:grid;place-items:center;
   }
 
   .tabs{
     display:flex;gap:6px;
     padding:10px calc(14px + var(--safe-right)) 0 calc(14px + var(--safe-left));
-    max-width:1080px;margin:0 auto;
-    overflow-x:auto;scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
-    scroll-snap-type:x proximity;
+    max-width:1080px;margin:0 auto;overflow-x:auto;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
     scroll-padding-left:calc(14px + var(--safe-left));
   }
   .tabs::-webkit-scrollbar{display:none}
@@ -177,8 +146,7 @@
     padding:9px 15px;border-radius:999px;cursor:pointer;
     font-size:13.5px;font-weight:700;font-family:inherit;
     transition:background .2s,color .2s,box-shadow .2s;
-    scroll-snap-align:start;white-space:nowrap;
-    min-height:40px;
+    scroll-snap-align:start;white-space:nowrap;min-height:40px;
   }
   .tab.active{
     background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;
@@ -210,20 +178,15 @@
   .btn{
     border:none;cursor:pointer;font-weight:700;
     padding:12px 22px;border-radius:12px;font-size:14.5px;
-    background:var(--primary-soft);color:var(--primary);transition:.2s;
-    min-height:var(--tap);
+    background:var(--primary-soft);color:var(--primary);transition:.2s;min-height:var(--tap);
   }
-  .btn.solid{
-    background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;
-    box-shadow:0 8px 20px rgba(99,102,241,.3);
-  }
+  .btn.solid{background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;box-shadow:0 8px 20px rgba(99,102,241,.3)}
   .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 
   .day-tools{
     display:flex;align-items:center;justify-content:space-between;
-    gap:12px;flex-wrap:wrap;
-    background:var(--primary-soft);border-radius:14px;
-    padding:12px 14px;margin-bottom:16px;
+    gap:12px;flex-wrap:wrap;background:var(--primary-soft);
+    border-radius:14px;padding:12px 14px;margin-bottom:16px;
   }
   .dt-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
   .dt-label{font-weight:700;color:var(--muted);font-size:12.5px}
@@ -233,98 +196,62 @@
   .dt-chip.ok{background:rgba(16,185,129,.15);color:var(--ok)}
   .dt-chip.new{background:rgba(99,102,241,.15);color:var(--primary)}
 
-  .today-deck{
-    position:relative;max-width:560px;margin:0 auto;
-    overscroll-behavior:contain;
-  }
+  .today-deck{position:relative;max-width:560px;margin:0 auto;overscroll-behavior:contain}
   .today-card{
     background:var(--card);border:1.5px solid var(--line);
-    border-radius:22px;
-    padding:22px 20px 20px;
+    border-radius:22px;padding:22px 20px 20px;
     min-height:min(58dvh,420px);
     display:flex;flex-direction:column;
     box-shadow:0 12px 32px rgba(15,23,42,.09);
     transition:transform .25s cubic-bezier(.2,.8,.3,1),opacity .25s;
-    touch-action:pan-y;
-    user-select:none;-webkit-user-select:none;
-    will-change:transform;
+    touch-action:pan-y;user-select:none;-webkit-user-select:none;will-change:transform;
   }
-  .tc-top{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:10px;margin-bottom:18px;min-height:26px;
-  }
+  .tc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;min-height:26px}
   .tc-badge{
     display:inline-block;font-size:12px;font-weight:800;
-    color:var(--accent);background:var(--primary-soft);
-    padding:4px 12px;border-radius:999px;
+    color:var(--accent);background:var(--primary-soft);padding:4px 12px;border-radius:999px;
   }
   .tc-mark{font-size:12px;font-weight:800}
   .tc-mark.ok{color:var(--ok)}
   .tc-mark.no{color:var(--bad)}
   .tc-word{
-    font-size:clamp(28px,9vw,42px);
-    font-weight:900;letter-spacing:.3px;
-    text-align:center;line-height:1.15;
-    word-break:break-word;margin-bottom:8px;
-    overflow-wrap:anywhere;
+    font-size:clamp(28px,9vw,42px);font-weight:900;letter-spacing:.3px;
+    text-align:center;line-height:1.15;word-break:break-word;margin-bottom:8px;overflow-wrap:anywhere;
   }
   .tc-phon{
     display:flex;align-items:center;justify-content:center;gap:10px;
-    color:var(--primary);font-size:14.5px;font-weight:600;
-    margin-bottom:20px;
-    flex-wrap:wrap;
+    color:var(--primary);font-size:14.5px;font-weight:600;margin-bottom:20px;flex-wrap:wrap;
   }
   .tc-sound{
     flex:0 0 auto;width:42px;height:42px;border:none;border-radius:50%;
     background:var(--primary-soft);color:var(--primary);
-    font-size:15px;cursor:pointer;transition:.2s;
-    display:grid;place-items:center;
+    font-size:15px;cursor:pointer;transition:.2s;display:grid;place-items:center;
   }
-  .tc-sound.speaking,.sc-sound.speaking{
-    background:var(--primary);color:#fff;
-    animation:pulse .9s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,.5)}
-    50%{box-shadow:0 0 0 8px rgba(99,102,241,0)}
-  }
-  .tc-body{
-    text-align:center;flex:1;
-    display:flex;flex-direction:column;justify-content:center;
-  }
+  .tc-sound.speaking,.sc-sound.speaking{background:var(--primary);color:#fff;animation:pulse .9s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,.5)}50%{box-shadow:0 0 0 8px rgba(99,102,241,0)}}
+  .tc-body{text-align:center;flex:1;display:flex;flex-direction:column;justify-content:center}
   .tc-meaning{font-size:18px;font-weight:800;margin-bottom:10px;line-height:1.5}
-  .tc-example{font-size:13.5px;color:var(--muted);line-height:1.65;font-style:italic}
+  .tc-example{font-size:13.5px;color:var(--muted);line-height:1.65;font-style:italic;word-break:break-word}
   .tc-reveal{
     margin:16px auto 0;border:1px dashed var(--line);background:transparent;
     color:var(--muted);font-size:13.5px;font-weight:600;
-    padding:12px 26px;border-radius:12px;cursor:pointer;
-    min-height:var(--tap);
+    padding:12px 26px;border-radius:12px;cursor:pointer;min-height:var(--tap);
   }
-
-  .today-nav{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:10px;max-width:560px;margin:16px auto 0;
-  }
+  .today-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:560px;margin:16px auto 0}
   .nav-btn{
     border:1.5px solid var(--line);background:var(--card);
     color:var(--muted);font-size:13px;font-weight:700;
     padding:11px 14px;border-radius:12px;cursor:pointer;
-    white-space:nowrap;min-height:var(--tap);
-    transition:.2s;
+    white-space:nowrap;min-height:var(--tap);transition:.2s;
   }
   .nav-btn:disabled{opacity:.35;cursor:not-allowed}
   .nav-center{flex:1;text-align:center;min-width:0}
   .nav-idx{font-size:13.5px;font-weight:800;margin-bottom:6px;color:var(--text)}
-  .nav-bar{
-    height:4px;background:var(--line);border-radius:99px;overflow:hidden;
-    max-width:180px;margin:0 auto;
-  }
+  .nav-bar{height:4px;background:var(--line);border-radius:99px;overflow:hidden;max-width:180px;margin:0 auto}
   .nav-bar>i{
     display:block;height:100%;border-radius:99px;
-    background:linear-gradient(90deg,#6366f1,#ec4899);
-    transition:width .3s ease;
+    background:linear-gradient(90deg,#6366f1,#ec4899);transition:width .3s ease;
   }
-
   .blur{filter:blur(6px);user-select:none;transition:filter .3s;cursor:pointer}
   .blur.show{filter:none;user-select:auto;cursor:auto}
 
@@ -334,37 +261,26 @@
 
   .quiz-head{
     display:flex;align-items:center;justify-content:space-between;
-    font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px;
-    gap:8px;flex-wrap:wrap;
+    font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px;gap:8px;flex-wrap:wrap;
   }
-  .bar{
-    height:6px;background:var(--line);border-radius:99px;overflow:hidden;
-    margin-bottom:20px;
-  }
+  .bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:20px}
   .bar>i{
     display:block;height:100%;width:0;border-radius:99px;
-    background:linear-gradient(90deg,#6366f1,#ec4899);
-    transition:width .35s ease;
+    background:linear-gradient(90deg,#6366f1,#ec4899);transition:width .35s ease;
   }
   .qcard{text-align:center;padding:6px 0 0}
   .qcard .pos{
     display:inline-block;font-size:12px;font-weight:800;color:var(--accent);
-    background:var(--primary-soft);padding:4px 12px;border-radius:999px;
-    margin-bottom:14px;
+    background:var(--primary-soft);padding:4px 12px;border-radius:999px;margin-bottom:14px;
   }
-  .qcard .cn{
-    font-size:clamp(20px,5.5vw,25px);font-weight:800;
-    line-height:1.45;margin-bottom:20px;word-break:break-word;
-  }
+  .qcard .cn{font-size:clamp(20px,5.5vw,25px);font-weight:800;line-height:1.45;margin-bottom:20px;word-break:break-word}
   .q-input{
     width:100%;max-width:380px;margin:0 auto;display:block;
     padding:14px 16px;font-size:17px;font-weight:600;
     text-align:center;letter-spacing:.5px;
     border:2px solid var(--line);border-radius:14px;
     background:var(--bg);color:var(--text);outline:none;
-    transition:border-color .2s,background .2s;
-    min-height:52px;
-    font-size:16px;
+    transition:border-color .2s,background .2s;min-height:52px;font-size:16px;
   }
   .q-input:focus{border-color:var(--primary);background:var(--card)}
   .q-input.ok{border-color:var(--ok);background:rgba(16,185,129,.1)}
@@ -372,20 +288,16 @@
   .q-actions{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
   .mini{
     border:1px solid var(--line);background:transparent;color:var(--muted);
-    font-size:13px;font-weight:600;
-    padding:11px 16px;border-radius:11px;cursor:pointer;
-    min-height:var(--tap);transition:.2s;
+    font-size:13px;font-weight:600;padding:11px 16px;border-radius:11px;
+    cursor:pointer;min-height:var(--tap);transition:.2s;
   }
   .q-fb{margin-top:16px;min-height:60px}
   .q-fb .tag{font-size:15px;font-weight:800;margin-bottom:8px}
   .q-fb .tag.ok{color:var(--ok)}
   .q-fb .tag.no{color:var(--bad)}
-  .q-fb .ans{
-    font-size:21px;font-weight:800;margin-bottom:6px;
-    word-break:break-word;letter-spacing:.3px;
-  }
+  .q-fb .ans{font-size:21px;font-weight:800;margin-bottom:6px;word-break:break-word;letter-spacing:.3px}
   .q-fb .ph{font-size:13px;color:var(--primary);font-weight:600;margin-bottom:4px}
-  .q-fb .eg{font-size:13px;color:var(--muted);font-style:italic;line-height:1.55}
+  .q-fb .eg{font-size:13px;color:var(--muted);font-style:italic;line-height:1.55;word-break:break-word}
 
   .result{text-align:center;padding:14px 0}
   .result .num{
@@ -396,19 +308,12 @@
   .result .lbl{font-size:13.5px;color:var(--muted);margin-bottom:20px;line-height:1.6}
   .wrong-list{
     text-align:left;background:var(--primary-soft);border-radius:14px;
-    padding:14px 16px;margin:0 auto 20px;max-width:460px;font-size:13.5px;
-    line-height:1.7;
+    padding:14px 16px;margin:0 auto 20px;max-width:460px;font-size:13.5px;line-height:1.7;
   }
   .wrong-list b{color:var(--primary)}
 
-  .stat-grid{
-    display:grid;gap:10px;margin-bottom:20px;
-    grid-template-columns:repeat(2,1fr);
-  }
-  .stat{
-    background:var(--card);border:1px solid var(--line);
-    border-radius:14px;padding:14px 10px;text-align:center;
-  }
+  .stat-grid{display:grid;gap:10px;margin-bottom:20px;grid-template-columns:repeat(2,1fr)}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
   .stat .v{font-size:22px;font-weight:900;color:var(--primary);line-height:1.2}
   .stat .k{font-size:12px;color:var(--muted);margin-top:3px}
   .dist-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:12.5px}
@@ -418,12 +323,44 @@
   .dist-row .nm{flex:0 0 34px;text-align:right;font-weight:700;color:var(--primary)}
   .danger{background:rgba(239,68,68,.1);color:var(--bad)}
 
+  .checkin-stats{display:grid;gap:10px;margin-bottom:16px;grid-template-columns:repeat(3,1fr)}
+  .ck-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 8px;text-align:center}
+  .ck-stat .v{
+    font-size:24px;font-weight:900;line-height:1.2;
+    background:linear-gradient(135deg,#ec4899,#f59e0b);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .ck-stat .k{font-size:11.5px;color:var(--muted);margin-top:3px}
+
+  .heatmap-wrap{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  }
+  .heatmap{
+    display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(7,1fr);
+    grid-auto-flow:column;gap:3px;min-width:280px;
+  }
+  .heat-cell{aspect-ratio:1;border-radius:3px;background:var(--line)}
+  .heat-cell[data-level="1"]{background:rgba(16,185,129,.28)}
+  .heat-cell[data-level="2"]{background:rgba(16,185,129,.55)}
+  .heat-cell[data-level="3"]{background:rgba(16,185,129,.78)}
+  .heat-cell[data-level="4"]{background:#10b981}
+  .heat-cell.future{background:transparent}
+  .heat-legend{
+    display:flex;align-items:center;justify-content:flex-end;
+    gap:6px;margin-top:10px;font-size:11.5px;color:var(--muted);
+  }
+  .heat-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--line)}
+  .heat-legend i[data-level="1"]{background:rgba(16,185,129,.28)}
+  .heat-legend i[data-level="2"]{background:rgba(16,185,129,.55)}
+  .heat-legend i[data-level="3"]{background:rgba(16,185,129,.78)}
+  .heat-legend i[data-level="4"]{background:#10b981}
+
   .scope-switch{display:flex;gap:10px;margin-bottom:12px}
   .scope-btn{
     flex:1;border:1.5px solid var(--line);background:var(--card);
     color:var(--muted);font-size:14px;font-weight:700;
-    padding:14px 10px;border-radius:14px;cursor:pointer;
-    min-height:52px;transition:.2s;
+    padding:14px 10px;border-radius:14px;cursor:pointer;min-height:52px;transition:.2s;
   }
   .scope-btn.active{
     background:linear-gradient(135deg,#6366f1,#ec4899);color:#fff;
@@ -434,72 +371,49 @@
   .sc-legend{font-size:12px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
 
   .deck{
-    position:relative;
-    height:clamp(380px,56dvh,460px);
-    max-width:520px;margin:0 auto;
-    overscroll-behavior:contain;
+    position:relative;height:clamp(380px,56dvh,460px);
+    max-width:520px;margin:0 auto;overscroll-behavior:contain;
   }
   .swipe-card{
-    position:absolute;inset:0;
-    background:var(--card);border:1px solid var(--line);
+    position:absolute;inset:0;background:var(--card);border:1px solid var(--line);
     border-radius:20px;box-shadow:0 14px 36px rgba(15,23,42,.13);
     padding:18px 16px 16px;
     display:flex;flex-direction:column;
     overflow-y:auto;overflow-x:hidden;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    touch-action:pan-y;
-    user-select:none;-webkit-user-select:none;
-    transition:transform .3s cubic-bezier(.2,.8,.3,1),opacity .3s;
-    will-change:transform;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    touch-action:pan-y;user-select:none;-webkit-user-select:none;
+    transition:transform .3s cubic-bezier(.2,.8,.3,1),opacity .3s;will-change:transform;
   }
   .swipe-card::-webkit-scrollbar{display:none}
   .swipe-card.dragging{transition:none}
-  .sc-backdrop{
-    position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(99,102,241,.09),rgba(236,72,153,.09));
-  }
-  .sc-top{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:10px;min-height:28px;margin-bottom:4px;
-  }
+  .sc-backdrop{position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,102,241,.09),rgba(236,72,153,.09))}
+  .sc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:28px;margin-bottom:4px}
   .sc-badge{
     display:inline-block;font-size:12px;font-weight:800;
-    color:var(--accent);background:var(--primary-soft);
-    padding:4px 12px;border-radius:999px;
+    color:var(--accent);background:var(--primary-soft);padding:4px 12px;border-radius:999px;
   }
   .sc-mark{font-size:13.5px;font-weight:800}
   .sc-mark.ok{color:var(--ok)}
   .sc-mark.no{color:var(--bad)}
   .sc-word{
-    font-size:clamp(24px,7vw,32px);
-    font-weight:900;letter-spacing:.3px;
-    text-align:center;margin:12px 0 4px;line-height:1.2;
-    word-break:break-word;overflow-wrap:anywhere;
+    font-size:clamp(24px,7vw,32px);font-weight:900;letter-spacing:.3px;
+    text-align:center;margin:12px 0 4px;line-height:1.2;word-break:break-word;overflow-wrap:anywhere;
   }
   .sc-phon{
     display:flex;align-items:center;justify-content:center;gap:8px;
-    color:var(--primary);font-size:13.5px;font-weight:600;
-    margin-bottom:14px;flex-wrap:wrap;
+    color:var(--primary);font-size:13.5px;font-weight:600;margin-bottom:14px;flex-wrap:wrap;
   }
   .sc-sound{
     width:40px;height:40px;border:none;border-radius:50%;flex:0 0 auto;
     background:var(--primary-soft);color:var(--primary);
     font-size:14px;cursor:pointer;display:grid;place-items:center;
   }
-  .sc-opts{
-    display:flex;flex-direction:column;gap:8px;
-    margin-top:auto;padding-top:8px;
-  }
+  .sc-opts{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:8px}
   .sc-opt{
-    width:100%;text-align:left;
-    border:1.5px solid var(--line);
+    width:100%;text-align:left;border:1.5px solid var(--line);
     background:var(--card);color:var(--text);
-    font-size:14px;font-weight:600;
-    padding:13px 14px;border-radius:12px;
-    cursor:pointer;transition:.18s;line-height:1.4;
-    min-height:52px;
-    display:flex;align-items:center;
+    font-size:14px;font-weight:600;padding:13px 14px;border-radius:12px;
+    cursor:pointer;transition:.18s;line-height:1.4;min-height:52px;display:flex;align-items:center;
   }
   .sc-opt:disabled{cursor:default}
   .sc-opt.correct{border-color:var(--ok);background:rgba(16,185,129,.12);color:var(--ok)}
@@ -507,150 +421,103 @@
   .opt-key{
     display:inline-flex;align-items:center;justify-content:center;
     width:24px;height:24px;border-radius:7px;margin-right:10px;flex:0 0 auto;
-    background:var(--primary-soft);color:var(--primary);
-    font-size:12px;font-weight:800;line-height:1;
+    background:var(--primary-soft);color:var(--primary);font-size:12px;font-weight:800;line-height:1;
   }
   .sc-opt.correct .opt-key{background:var(--ok);color:#fff}
   .sc-opt.wrong   .opt-key{background:var(--bad);color:#fff}
   .sc-next-row{margin-top:10px}
   .sc-next-row .btn{width:100%}
-  .sc-hint{
-    text-align:center;font-size:12px;color:var(--muted);
-    margin-top:10px;opacity:.85;
-  }
+  .sc-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:10px;opacity:.85}
 
-  .sc-auto{
-    margin-top:12px;
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    font-size:12.5px;color:var(--muted);
-  }
-  .sc-auto .bar-mini{
-    width:90px;height:3px;background:var(--line);
-    border-radius:99px;overflow:hidden;
-  }
+  .sc-auto{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:12.5px;color:var(--muted)}
+  .sc-auto .bar-mini{width:90px;height:3px;background:var(--line);border-radius:99px;overflow:hidden}
   .sc-auto .bar-mini>i{
-    display:block;height:100%;background:var(--primary);
-    border-radius:99px;width:0;
+    display:block;height:100%;background:var(--primary);border-radius:99px;width:0;
     animation:autoFill 1.5s linear forwards;
   }
-  @keyframes autoFill{
-    from{width:0}
-    to{width:100%}
-  }
+  @keyframes autoFill{from{width:0}to{width:100%}}
 
   .foot{
     text-align:center;font-size:12px;color:var(--muted);
     padding:24px calc(14px + var(--safe-right)) calc(24px + var(--safe-bottom)) calc(14px + var(--safe-left));
   }
 
-  .vp-row{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:12px;margin-bottom:12px;font-size:13px;
-  }
+  .vp-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;font-size:13px}
   .vp-row label{color:var(--muted);font-weight:600;flex:0 0 auto}
   .vp-row select{
-    flex:1;min-width:0;max-width:200px;
-    font-size:13.5px;padding:10px 12px;
+    flex:1;min-width:0;max-width:200px;font-size:13.5px;padding:10px 12px;
     border-radius:10px;border:1.5px solid var(--line);
-    background:var(--bg);color:var(--text);outline:none;
-    min-height:44px;
+    background:var(--bg);color:var(--text);outline:none;min-height:44px;
     -webkit-appearance:none;appearance:none;
   }
-  .vp-toggle{
-    display:flex;align-items:center;gap:9px;
-    font-size:13.5px;font-weight:600;cursor:pointer;
-    min-height:44px;
-  }
+  .vp-toggle{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;cursor:pointer;min-height:44px}
   .vp-toggle input{width:20px;height:20px;accent-color:var(--primary);cursor:pointer}
 
   .source-card{
-    background:var(--primary-soft);
-    border-radius:14px;padding:14px 16px;margin-bottom:16px;
-    font-size:13px;color:var(--text);
+    background:var(--primary-soft);border-radius:14px;padding:14px 16px;
+    margin-bottom:16px;font-size:13px;color:var(--text);
   }
-  .source-card .sc-row{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:10px;flex-wrap:wrap;
-  }
+  .source-card .sc-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
   .source-card .sc-row+.sc-row{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(99,102,241,.25)}
   .source-card b{color:var(--primary);word-break:break-all}
   .source-card .st{font-size:11.5px;color:var(--muted);font-weight:600}
   .source-card .btn-mini{
     border:1px solid var(--primary);background:transparent;color:var(--primary);
-    font-size:12.5px;font-weight:700;
-    padding:9px 14px;border-radius:10px;cursor:pointer;
-    min-height:40px;transition:.2s;
+    font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:10px;
+    cursor:pointer;min-height:40px;transition:.2s;
   }
-  .source-card input[type=email],
-  .source-card input[type=password]{
-    transition:border-color .2s,background .2s;
-    font-size:16px;
+  .source-card input[type=email],.source-card input[type=password]{transition:border-color .2s,background .2s;font-size:16px}
+  .source-card input[type=email]:focus,.source-card input[type=password]:focus{
+    border-color:var(--primary)!important;background:var(--card)!important;
   }
-  .source-card input[type=email]:focus,
-  .source-card input[type=password]:focus{
-    border-color:var(--primary)!important;
-    background:var(--card)!important;
-  }
+  .checkin-lock{text-align:center;padding:8px 4px}
+  .checkin-lock .icon{font-size:38px;margin-bottom:8px;opacity:.8}
+  .checkin-lock p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
 
   @media (max-width:640px){
     .brand{font-size:14.5px}
     .brand .brand-sub{display:none}
     .pill{font-size:11px;padding:4px 8px}
     .icon-btn{width:36px;height:36px;font-size:15px}
-
     .tab{padding:8px 13px;font-size:13px;gap:5px;min-height:38px}
     .tab .dot{min-width:17px;height:17px;font-size:10px}
-
     .card{padding:16px 14px;border-radius:16px}
     h2{font-size:16.5px}
     .sub{font-size:12.5px;margin-bottom:14px}
-
     .btn{padding:12px 20px;font-size:14px;min-height:48px}
-
-    .day-tools{
-      padding:12px 14px;gap:10px;
-      flex-direction:column;align-items:stretch;
-    }
+    .day-tools{padding:12px 14px;gap:10px;flex-direction:column;align-items:stretch}
     .day-tools .btn{width:100%}
-
-    .today-card{
-      padding:18px 16px 16px;
-      min-height:min(56dvh,400px);
-      border-radius:20px;
-    }
+    .today-card{padding:18px 16px 16px;min-height:min(56dvh,400px);border-radius:20px}
     .tc-top{margin-bottom:14px}
     .tc-word{font-size:clamp(28px,10vw,38px)}
     .tc-phon{font-size:14px;margin-bottom:16px;gap:8px}
     .tc-sound{width:40px;height:40px;font-size:15px}
     .tc-meaning{font-size:17px}
     .tc-example{font-size:13px;line-height:1.6}
-
     .today-nav{gap:8px;margin-top:14px}
     .nav-btn{padding:11px 13px;font-size:12.5px;min-height:46px}
     .nav-idx{font-size:13px}
     .nav-bar{max-width:140px}
-
     .quiz-head{font-size:12.5px}
     .qcard .cn{font-size:clamp(20px,5.5vw,24px);margin-bottom:18px}
-    .q-input{
-      padding:14px 14px;
-      border-radius:14px;
-      min-height:54px;
-    }
+    .q-input{padding:14px 14px;border-radius:14px;min-height:54px}
     .mini{padding:11px 14px;font-size:12.5px;min-height:46px}
     .q-fb .ans{font-size:19px}
     .q-fb .ph{font-size:12.5px}
     .q-fb .eg{font-size:12.5px;line-height:1.55}
-
     .result .num{font-size:44px}
     .result .lbl{font-size:13px;margin-bottom:18px}
     .wrong-list{padding:13px 14px;font-size:13px}
-
     .stat-grid{gap:9px}
     .stat{padding:14px 8px;border-radius:12px}
     .stat .v{font-size:21px}
     .stat .k{font-size:11.5px}
-
+    .checkin-stats{gap:8px}
+    .ck-stat{padding:12px 6px;border-radius:12px}
+    .ck-stat .v{font-size:21px}
+    .ck-stat .k{font-size:11px}
+    .heatmap-wrap{padding:12px}
+    .heatmap{gap:2.5px;min-width:260px}
     .scope-btn{padding:14px 8px;font-size:13.5px;min-height:54px}
     .scope-btn b{font-size:14px}
     .deck{height:clamp(370px,55dvh,440px)}
@@ -664,16 +531,12 @@
     .sc-hint{font-size:11.5px}
     .sc-auto{font-size:11.5px;margin-top:10px}
     .sc-auto .bar-mini{width:80px}
-
     .vp-row select{max-width:160px;font-size:13px}
-
     .source-card{padding:13px 14px;font-size:12.5px}
     .source-card .btn-mini{padding:9px 12px;font-size:12px}
   }
-
   @media (max-width:380px){
     .brand{font-size:13.5px}
-    .brand .brand-sub{display:none}
     .pill{font-size:10.5px;padding:3px 7px}
     .tab{padding:7px 11px;font-size:12.5px}
     .today-card{min-height:min(52dvh,360px);padding:16px 14px}
@@ -681,8 +544,9 @@
     .sc-opt{font-size:13px;padding:12px}
     .sc-word{font-size:22px}
     .deck{height:clamp(340px,52dvh,410px)}
+    .checkin-stats{grid-template-columns:repeat(3,1fr);gap:6px}
+    .ck-stat .v{font-size:19px}
   }
-
   @media (max-height:520px) and (orientation:landscape){
     .topbar{padding-top:calc(8px + var(--safe-top));padding-bottom:8px}
     .today-card{min-height:280px;padding:16px 16px}
@@ -699,13 +563,8 @@
     .sc-opt{padding:11px 12px;font-size:13px;min-height:44px}
     .foot{padding:12px 14px calc(14px + var(--safe-bottom))}
   }
-
   @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{
-      animation-duration:.01ms!important;
-      animation-iteration-count:1!important;
-      transition-duration:.01ms!important;
-    }
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   }
 </style>
 </head>
@@ -721,6 +580,7 @@
 <header class="topbar">
   <div class="brand">🎓 研究生英语<span class="brand-sub"> · 艾宾浩斯记忆</span></div>
   <div class="top-right">
+    <span class="pill fire" id="streakPill" style="display:none">🔥 0</span>
     <span class="pill" id="masteredPill">已掌握 0</span>
     <span class="pill due" id="duePill">待复习 0</span>
     <button class="icon-btn" id="themeBtn" title="切换主题">🌙</button>
@@ -757,6 +617,9 @@
       <h2 style="font-size:15px;margin:22px 0 12px">复习阶段分布</h2>
       <div id="distList"></div>
 
+      <h2 style="font-size:15px;margin:24px 0 12px">🔥 每日打卡</h2>
+      <div id="checkinContent"></div>
+
       <h2 style="font-size:15px;margin:24px 0 12px">📡 词库来源</h2>
       <div id="sourceCardWrap"></div>
 
@@ -764,7 +627,7 @@
       <div class="source-card" id="cloudCard">
         <div id="cloudLoginView">
           <p style="font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.6">
-            登录后进度会保存到云端。换设备时用同一个账号登录即可继续。
+            登录后进度会保存到云端，打卡数据跟账号绑定，换设备也能同步。
           </p>
           <input id="cloudEmail" type="email" placeholder="邮箱" autocomplete="email"
             style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--text);font-size:16px;outline:none;margin-bottom:9px">
@@ -805,7 +668,7 @@
           <input type="file" id="importFile" accept="application/json,.json" style="display:none">
         </div>
         <div style="margin-top:10px;padding-top:10px;border-top:1px dashed rgba(99,102,241,.25);font-size:11.5px;color:var(--muted);line-height:1.6">
-          导出的文件包含全部学习记录、复习计划与设置。换手机或换浏览器时，导入即可接着学。
+          导出的文件包含全部学习记录、复习计划、打卡记录与设置。
         </div>
       </div>
 
@@ -834,17 +697,19 @@
 /* ═══════════════════════════════════════════════════════════
    配置区
    ═══════════════════════════════════════════════════════════ */
-const RSS_URL = './words.xml';
-const PROXY   = '';
+const WORDS_INDEX = './words-index.json';
 const SUPABASE_URL      = 'https://nzredlyjvpvbhttyfmiy.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_B53wvfMghC1NGNH7Gbikbw_EhzBoXYZ';
 
-const CACHE_TTL      = 0;
-const WORD_CACHE_KEY = 'gradVocabWordsCache_v1';
-const STORE_KEY      = 'gradVocabEbbinghaus_v8';
-const VOICE_KEY      = 'gradVocabVoice_v1';
-const DAILY_COUNT    = 20;
-const INTERVALS      = [1, 2, 4, 7, 15, 30];
+const PRELOAD_BATCHES = 2;
+const MIN_POOL_SIZE   = 200;
+
+const BATCH_CACHE_KEY = 'gradVocabBatches_v1';
+const STORE_KEY       = 'gradVocabEbbinghaus_v9';
+const VOICE_KEY       = 'gradVocabVoice_v1';
+const DAILY_COUNT     = 20;
+const INTERVALS       = [1, 2, 4, 7, 15, 30];
+const CHECKIN_THRESHOLD = 10;
 
 const isTouch = matchMedia('(hover: none)').matches;
 const SWIPE_THRESHOLD = isTouch ? 48 : 80;
@@ -852,6 +717,9 @@ const SWIPE_THRESHOLD = isTouch ? 48 : 80;
 /* ═══ 工具 ═══ */
 function todayStr(){
   const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function dateStr(d){
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 }
 function addDays(dateStr, n){
@@ -872,103 +740,190 @@ function esc(s){
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-/* ═══ 词库 ═══ */
+/* ═══ 分批词库 ═══ */
 let ALL_WORDS = [];
 let WORD_MAP  = {};
-let WORDS_META = { fromCache:false, ts:0, count:0, sourceUrl:'' };
+let indexInfo  = null;
+let loadedBatches = new Set();
+let batchCache = { batches:{} };
 
-function readCache(){
+function loadBatchCache(){
   try {
-    const raw = localStorage.getItem(WORD_CACHE_KEY);
-    if (!raw) return null;
-    const data = JSON.parse(raw);
-    if (!data || !Array.isArray(data.words) || !data.words.length) return null;
-    return data;
-  } catch(e){ return null; }
+    const raw = localStorage.getItem(BATCH_CACHE_KEY);
+    if (!raw) return;
+    const p = JSON.parse(raw);
+    if (p && p.batches && typeof p.batches === 'object') batchCache = p;
+  } catch(e){}
 }
-function writeCache(words, meta){
+function saveBatchCache(){
   try {
-    localStorage.setItem(WORD_CACHE_KEY, JSON.stringify({
-      ts: Date.now(),
-      version: (meta && meta.version) || '',
-      updated: (meta && meta.updated) || '',
-      words
-    }));
+    batchCache.version = indexInfo ? indexInfo.version : (batchCache.version || '');
+    localStorage.setItem(BATCH_CACHE_KEY, JSON.stringify(batchCache));
   } catch(e){
     try {
-      localStorage.removeItem(WORD_CACHE_KEY);
-      localStorage.setItem(WORD_CACHE_KEY, JSON.stringify({ ts:Date.now(), words }));
-    } catch(e2){}
+      const keys = Object.keys(batchCache.batches).map(Number).sort((a,b) => b - a);
+      const keep = {};
+      keys.slice(0, 5).forEach(k => keep[k] = batchCache.batches[k]);
+      batchCache.batches = keep;
+      batchCache.version = indexInfo ? indexInfo.version : '';
+      localStorage.setItem(BATCH_CACHE_KEY, JSON.stringify(batchCache));
+    } catch(e2){ console.warn('[词库] 缓存写入失败', e2); }
   }
 }
-async function fetchFromRSS(){
-  let url;
-  if (PROXY) url = PROXY + encodeURIComponent(RSS_URL);
-  else url = RSS_URL;
-  const res = await fetch(url, { cache:'no-store' });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const text = await res.text();
-  let words = [], meta = { version:'', updated:'' };
-  const trimmed = text.trim();
-  if (trimmed.startsWith('{') || trimmed.startsWith('[')){
-    const data = JSON.parse(trimmed);
-    if (data.status === 'error') throw new Error(data.message || 'RSS 代理返回错误');
-    const items = data.items || [];
-    items.forEach(item => {
-      const word = String(item.title || '').trim();
-      if (!word) return;
-      const raw = String(item.description || '')
-        .replace(/<br\s*\/?>/gi, ' ')
-        .replace(/<\/p>/gi, ' ')
-        .replace(/<[^>]+>/g, '')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&amp;/g, '&')
-        .replace(/\s+/g, ' ')
-        .trim();
-      const parts = raw.split('|').map(s => s.trim());
-      const w = {
-        word,
-        phonetic: parts[0] || '',
-        pos:      parts[1] || '',
-        cn:       parts[2] || '',
-        eg:       parts[3] || ''
-      };
-      if (w.word && w.cn) words.push(w);
-    });
-    if (data.feed){
-      meta.version = data.feed.title || '';
-      meta.updated = data.feed.pubDate || '';
-    }
-  } else {
-    const doc = new DOMParser().parseFromString(text, 'text/xml');
-    if (doc.querySelector('parsererror')) throw new Error('XML 格式错误');
-    meta.version = doc.querySelector('channel > title')?.textContent || '';
-    meta.updated = doc.querySelector('channel > pubDate')?.textContent || '';
-    const items = Array.from(doc.querySelectorAll('item'));
-    items.forEach(item => {
-      const word = (item.querySelector('title')?.textContent || '').trim();
-      if (!word) return;
-      const raw = (item.querySelector('description')?.textContent || '')
-        .replace(/\s+/g, ' ').trim();
-      const parts = raw.split('|').map(s => s.trim());
-      const w = {
-        word,
-        phonetic: parts[0] || '',
-        pos:      parts[1] || '',
-        cn:       parts[2] || '',
-        eg:       parts[3] || ''
-      };
-      if (w.word && w.cn) words.push(w);
-    });
-  }
-  if (!words.length) throw new Error('词库中没有有效单词');
-  return { words, meta };
+async function loadIndex(){
+  const res = await fetch(WORDS_INDEX, { cache:'no-cache' });
+  if (!res.ok) throw new Error('索引文件加载失败 HTTP ' + res.status);
+  const data = await res.json();
+  if (!data || !Array.isArray(data.files) || !data.files.length) throw new Error('索引格式错误');
+  return data;
 }
-function applyWords(words){
-  ALL_WORDS = words;
-  WORD_MAP = {};
-  ALL_WORDS.forEach(w => WORD_MAP[w.word] = w);
+async function loadBatchFile(n){
+  if (!indexInfo) throw new Error('索引未加载');
+  const file = indexInfo.files[n - 1];
+  if (!file) throw new Error('批次不存在：' + n);
+  const res = await fetch(file);
+  if (!res.ok) throw new Error(`批次 ${n} 加载失败 HTTP ${res.status}`);
+  const list = await res.json();
+  if (!Array.isArray(list)) throw new Error(`批次 ${n} 格式错误`);
+  return list.map(item => ({
+    word:     String(item.word || item.w || '').trim(),
+    phonetic: String(item.phonetic || item.p || '').trim(),
+    pos:      String(item.pos || item.t || '').trim(),
+    cn:       String(item.cn || item.c || '').trim(),
+    eg:       String(item.eg || item.e || '').trim()
+  })).filter(w => w.word && w.cn);
+}
+async function loadAndAppendBatch(n){
+  if (loadedBatches.has(n)) return;
+  try {
+    const words = await loadBatchFile(n);
+    batchCache.batches[n] = words;
+    words.forEach(w => {
+      if (!WORD_MAP[w.word]){ ALL_WORDS.push(w); WORD_MAP[w.word] = w; }
+    });
+    loadedBatches.add(n);
+    saveBatchCache();
+    console.log(`[词库] 已加载批次 ${n}（${words.length} 词），总计 ${ALL_WORDS.length} 词`);
+  } catch(err){
+    console.warn(`[词库] 批次 ${n} 加载失败：`, err.message);
+    throw err;
+  }
+}
+function restoreBatchesFromCache(){
+  let restored = 0;
+  Object.keys(batchCache.batches).forEach(k => {
+    const n = Number(k);
+    if (!batchCache.batches[k] || !batchCache.batches[k].length) return;
+    loadedBatches.add(n);
+    batchCache.batches[k].forEach(w => {
+      if (!WORD_MAP[w.word]){ ALL_WORDS.push(w); WORD_MAP[w.word] = w; }
+    });
+    restored++;
+  });
+  return restored;
+}
+async function ensureLearnedWordsLoaded(){
+  if (!indexInfo) return;
+  const learned = Object.keys(state.records);
+  if (!learned.length) return;
+  const missing = learned.filter(w => !WORD_MAP[w]);
+  if (!missing.length) return;
+  console.log(`[词库] 需要补充加载已学词：${missing.length} 个`);
+  for (let i = 1; i <= indexInfo.files.length; i++){
+    if (loadedBatches.has(i)) continue;
+    try { await loadAndAppendBatch(i); } catch(e){}
+    const still = learned.filter(w => !WORD_MAP[w]);
+    if (!still.length) break;
+  }
+}
+async function ensureEnoughWords(){
+  if (!indexInfo) return;
+  const used = new Set(Object.keys(state.records));
+  const poolSize = ALL_WORDS.filter(w => !used.has(w.word)).length;
+  if (poolSize >= MIN_POOL_SIZE) return;
+  console.log(`[词库] 未学词池仅剩 ${poolSize} 个，尝试加载下一批`);
+  for (let i = 1; i <= indexInfo.files.length; i++){
+    if (loadedBatches.has(i)) continue;
+    try { await loadAndAppendBatch(i); } catch(e){}
+    const used2 = new Set(Object.keys(state.records));
+    const pool2 = ALL_WORDS.filter(w => !used2.has(w.word)).length;
+    if (pool2 >= MIN_POOL_SIZE) break;
+  }
+}
+function onBatchesLoaded(){
   cleanRecords();
+  ensureTodayWords();
+  renderToday();
+  renderStats();
+  updateBadges();
+}
+let checkPoolTimer = null;
+function schedulePoolCheck(){
+  if (!indexInfo) return;
+  clearTimeout(checkPoolTimer);
+  checkPoolTimer = setTimeout(async () => {
+    try { await ensureEnoughWords(); onBatchesLoaded(); } catch(e){}
+  }, 3000);
+}
+
+/* ═══ 打卡（仅登录后记录） ═══ */
+function recordCheckin(isCorrect){
+  if (!currentUser) return;
+  if (!state.checkins) state.checkins = {};
+  const t = todayStr();
+  const ck = state.checkins[t] || { correct: 0, total: 0 };
+  ck.total++;
+  if (isCorrect) ck.correct++;
+  state.checkins[t] = ck;
+}
+function isDayChecked(ds){
+  const ck = state.checkins && state.checkins[ds];
+  return !!(ck && ck.correct >= CHECKIN_THRESHOLD);
+}
+function getCurrentStreak(){
+  let streak = 0;
+  let d = todayStr();
+  if (!isDayChecked(d)) d = addDays(d, -1);
+  while (isDayChecked(d)){ streak++; d = addDays(d, -1); }
+  return streak;
+}
+function getMaxStreak(){
+  if (!state.checkins) return 0;
+  const days = Object.keys(state.checkins)
+    .filter(d => state.checkins[d].correct >= CHECKIN_THRESHOLD).sort();
+  if (!days.length) return 0;
+  let max = 1, cur = 1;
+  for (let i = 1; i < days.length; i++){
+    if (addDays(days[i-1], 1) === days[i]) cur++;
+    else cur = 1;
+    if (cur > max) max = cur;
+  }
+  return max;
+}
+function getTotalCheckins(){
+  if (!state.checkins) return 0;
+  return Object.keys(state.checkins).filter(d => state.checkins[d].correct >= CHECKIN_THRESHOLD).length;
+}
+
+/* ═══ 状态 ═══ */
+let state = { records:{}, daily:{}, checkins:{} };
+let todayIdx = 0;
+
+function loadState(){
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw){
+      const p = JSON.parse(raw);
+      state.records  = p.records  || {};
+      state.daily    = p.daily    || {};
+      state.checkins = p.checkins || {};
+    }
+  } catch(e){ state = { records:{}, daily:{}, checkins:{} }; }
+}
+function saveState(){
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
+  scheduleUpload();
+  schedulePoolCheck();
 }
 function cleanRecords(){
   const validSet = new Set(ALL_WORDS.map(w => w.word));
@@ -981,36 +936,7 @@ function cleanRecords(){
     state.daily[d] = state.daily[d].filter(w => validSet.has(w));
     if (state.daily[d].length !== before) removed += (before - state.daily[d].length);
   });
-  if (removed){ saveState(); console.log('[词库] 清理', removed, '条无效记录'); }
-}
-function wordsChanged(oldWords, newWords){
-  if (!oldWords || oldWords.length !== newWords.length) return true;
-  const map = new Map(oldWords.map(w => [w.word, w]));
-  for (const nw of newWords){
-    const ow = map.get(nw.word);
-    if (!ow) return true;
-    if (ow.cn !== nw.cn || ow.phonetic !== nw.phonetic) return true;
-  }
-  return false;
-}
-
-/* ═══ 状态 ═══ */
-let state = { records:{}, daily:{} };
-let todayIdx = 0;
-
-function loadState(){
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (raw){
-      const p = JSON.parse(raw);
-      state.records = p.records || {};
-      state.daily   = p.daily   || {};
-    }
-  } catch(e){ state = { records:{}, daily:{} }; }
-}
-function saveState(){
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
-  scheduleUpload();
+  if (removed){ try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){} }
 }
 function ensureTodayWords(){
   const t = todayStr();
@@ -1028,7 +954,8 @@ function ensureTodayWords(){
       dayQuiz:null, dayQuizDate:null, dayTries:0
     };
   });
-  saveState();
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
+  scheduleUpload();
 }
 function dueWords(){
   const t = todayStr();
@@ -1072,6 +999,7 @@ function applyAnswer(word, isCorrect, mode){
   r.lastReview = t;
   r.reviews++;
   if (isCorrect) r.correct++; else r.wrong++;
+  recordCheckin(isCorrect);
   if (mode === 'today'){
     r.dayQuiz = isCorrect ? 'pass' : 'fail';
     r.dayQuizDate = t;
@@ -1172,19 +1100,18 @@ function renderToday(){
   const sub = document.getElementById('todaySub');
   if (todayIdx >= list.length) todayIdx = Math.max(0, list.length - 1);
   if (todayIdx < 0) todayIdx = 0;
-  const remain = ALL_WORDS.length - Object.keys(state.records).length;
   title.textContent = '今日新词 · ' + t;
   if (!list.length){
     sub.textContent = '每天自动从题库中随机抽取 20 个从未出现过的单词。';
     box.innerHTML = `<div class="empty"><div class="big">🎉</div>
-      <p>题库中的 ${ALL_WORDS.length} 个单词已全部学习完毕！</p>
+      <p>词库中的 ${ALL_WORDS.length} 个单词已全部学习完毕！</p>
       <p style="margin-top:6px">接下来请专注完成每日的艾宾浩斯复习默写。</p></div>`;
     return;
   }
   const st = dayQuizStats();
   const done = st.pass + st.fail;
   const allPass = st.pass === st.total;
-  sub.innerHTML = `已抽取 <b>${list.length}</b> 个新单词，题库剩余 <b>${remain}</b> 个。<br>
+  sub.innerHTML = `已抽取 <b>${list.length}</b> 个新单词，已加载 <b>${ALL_WORDS.length}</b> 词。<br>
     <span style="font-size:12px;opacity:.8">← 在卡片上左右滑动翻看 →</span>`;
   let chips = '';
   if (allPass) chips = `<span class="dt-chip ok">全部通过 ✓</span>`;
@@ -1508,6 +1435,7 @@ function examWords(scope){
 }
 function buildOptions(word){
   const target = WORD_MAP[word];
+  if (!target) return [];
   const correct = target.cn;
   const seen = new Set([correct]);
   const pool = [];
@@ -1667,11 +1595,7 @@ function bindDeck(deck){
     const card = e.target.closest('.swipe-card.top');
     if (!card) return;
     if (e.target.closest('button')) return;
-    drag = {
-      card, pid:e.pointerId,
-      startX:e.clientX, startY:e.clientY,
-      dx:0, dy:0, active:false, cancelled:false, captured:false
-    };
+    drag = { card, pid:e.pointerId, startX:e.clientX, startY:e.clientY, dx:0, dy:0, active:false, cancelled:false, captured:false };
   });
   deck.addEventListener('pointermove', e => {
     if (!drag || e.pointerId !== drag.pid) return;
@@ -1679,10 +1603,7 @@ function bindDeck(deck){
     drag.dy = e.clientY - drag.startY;
     if (!drag.active){
       if (Math.abs(drag.dx) < 8 && Math.abs(drag.dy) < 8) return;
-      if (Math.abs(drag.dy) > Math.abs(drag.dx)){
-        drag.cancelled = true; drag.active = true;
-        return;
-      }
+      if (Math.abs(drag.dy) > Math.abs(drag.dx)){ drag.cancelled = true; drag.active = true; return; }
       drag.active = true;
       if (!drag.captured){
         try { drag.card.setPointerCapture(e.pointerId); drag.captured = true; } catch(err){}
@@ -1727,6 +1648,8 @@ function answerExam(opt){
   engCn.picked = opt;
   if (ok) engCn.correct++;
   else engCn.wrong.push(word);
+  recordCheckin(ok);
+  saveState();
   renderEnCn();
   clearTimeout(engCn.autoTimer);
   if (engCn.idx + 1 < engCn.queue.length){
@@ -1787,9 +1710,9 @@ let lastSyncAt = 0;
 
 function initSupabase(){
   if (typeof supabase === 'undefined'){ console.warn('[云同步] SDK 未加载'); return false; }
-  if (!SUPABASE_URL || SUPABASE_URL.includes('xxxxx')) return false;
-  sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  return true;
+  if (!SUPABASE_URL || SUPABASE_URL.includes('xxxxx')){ console.warn('[云同步] 未配置'); return false; }
+  try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY); return true; }
+  catch(err){ console.error('[云同步] 初始化失败', err); return false; }
 }
 async function checkSession(){
   if (!sb) return;
@@ -1801,6 +1724,8 @@ async function checkSession(){
       await uploadToCloud();
     }
     updateCloudUI();
+    renderCheckin();
+    updateBadges();
   } catch(e){ console.log('[云同步] 检查会话失败', e); }
 }
 async function cloudSignUp(email, password){
@@ -1810,6 +1735,8 @@ async function cloudSignUp(email, password){
   currentUser = data.user;
   updateCloudUI();
   await uploadToCloud();
+  renderCheckin();
+  updateBadges();
   return '注册成功，进度已上传';
 }
 async function cloudSignIn(email, password){
@@ -1818,12 +1745,18 @@ async function cloudSignIn(email, password){
   currentUser = data.user;
   updateCloudUI();
   await onSignedIn();
+  renderCheckin();
+  updateBadges();
   return '登录成功';
 }
 async function cloudSignOut(){
   await sb.auth.signOut();
   currentUser = null;
+  state.checkins = {};
+  saveState();
   updateCloudUI();
+  renderCheckin();
+  updateBadges();
 }
 async function onSignedIn(){
   const { data, error } = await sb
@@ -1833,18 +1766,15 @@ async function onSignedIn(){
     .maybeSingle();
   if (error){ console.log('[云同步] 拉取失败', error); return; }
   const localHasData = Object.keys(state.records).length > 0;
-  if (!data){
-    if (localHasData) await uploadToCloud();
-    return;
-  }
+  if (!data){ if (localHasData) await uploadToCloud(); return; }
   if (!localHasData){
     state = data.data;
+    if (!state.checkins) state.checkins = {};
     saveState();
     location.reload();
     return;
   }
-  const cloudTime = data.updated_at
-    ? new Date(data.updated_at).toLocaleString('zh-CN') : '未知时间';
+  const cloudTime = data.updated_at ? new Date(data.updated_at).toLocaleString('zh-CN') : '未知时间';
   const useCloud = confirm(
     '云端已有备份（' + cloudTime + '）\n\n' +
     '点「确定」→ 用云端覆盖本地\n' +
@@ -1853,6 +1783,7 @@ async function onSignedIn(){
   );
   if (useCloud){
     state = data.data;
+    if (!state.checkins) state.checkins = {};
     saveState();
     location.reload();
   } else {
@@ -1935,7 +1866,7 @@ function bindCloudButtons(){
     syncBtn.textContent = '🔄 立即同步';
   });
   if (logoutBtn) logoutBtn.addEventListener('click', async () => {
-    if (!confirm('退出后本地进度保留，但不再自动上传。确定退出吗？')) return;
+    if (!confirm('退出后本地学习进度保留，但打卡数据会清空（跟账号绑定）。确定退出吗？')) return;
     await cloudSignOut();
   });
 }
@@ -1947,7 +1878,7 @@ function exportProgress(){
     version:1,
     exportedAt:new Date().toISOString(),
     state, voiceCfg,
-    wordsMeta:{ version:WORDS_META.version || '', updated:WORDS_META.updated || '', count:ALL_WORDS.length }
+    wordsMeta:{ version:(indexInfo && indexInfo.version) || '', count:ALL_WORDS.length }
   };
   const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
   const url = URL.createObjectURL(blob);
@@ -1976,8 +1907,9 @@ function importProgress(file){
       '· 导出时间：' + exportedAt + '\n\n' +
       '⚠️ 这会覆盖当前设备上的全部学习进度，且无法撤销。\n\n确定继续吗？';
     if (!confirm(msg)) return;
-    state.records = data.state.records || {};
-    state.daily   = data.state.daily   || {};
+    state.records  = data.state.records  || {};
+    state.daily    = data.state.daily    || {};
+    state.checkins = data.state.checkins || {};
     if (data.voiceCfg && typeof data.voiceCfg === 'object'){
       Object.assign(voiceCfg, data.voiceCfg);
       saveVoiceCfg();
@@ -2002,6 +1934,69 @@ function bindBackupButtons(){
       e.target.value = '';
     });
   }
+}
+
+/* ═══ 打卡渲染 ═══ */
+function renderCheckin(){
+  const box = document.getElementById('checkinContent');
+  if (!box) return;
+  if (!currentUser){
+    box.innerHTML = `
+      <div class="source-card checkin-lock">
+        <div class="icon">🔒</div>
+        <p>打卡功能需登录账号才能使用。<br>
+           登录后打卡数据会保存到云端，换设备也能同步。</p>
+        <button class="btn-mini" id="goLoginBtn">前往登录 ↓</button>
+      </div>`;
+    const btn = box.querySelector('#goLoginBtn');
+    if (btn) btn.addEventListener('click', () => {
+      const cloudCard = document.getElementById('cloudCard');
+      if (cloudCard) cloudCard.scrollIntoView({ block:'center', behavior:'smooth' });
+    });
+    return;
+  }
+  const cur = getCurrentStreak();
+  const max = getMaxStreak();
+  const total = getTotalCheckins();
+  const days = 84;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const start = new Date(today);
+  start.setDate(start.getDate() - (days - 1));
+  let cells = '';
+  for (let i = 0; i < days; i++){
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    const ds = dateStr(d);
+    const ck = state.checkins && state.checkins[ds];
+    const correct = ck ? ck.correct : 0;
+    let level = 0;
+    if (correct >= 30) level = 4;
+    else if (correct >= 20) level = 3;
+    else if (correct >= 15) level = 2;
+    else if (correct >= CHECKIN_THRESHOLD) level = 1;
+    const isFuture = d > today;
+    const cls = 'heat-cell' + (isFuture ? ' future' : '');
+    const title = isFuture ? '' : `${ds} · 答对 ${correct} 题${correct >= CHECKIN_THRESHOLD ? ' ✓' : ''}`;
+    cells += `<div class="${cls}" data-level="${level}" title="${title}"></div>`;
+  }
+  box.innerHTML = `
+    <div class="checkin-stats">
+      <div class="ck-stat"><div class="v">🔥 ${cur}</div><div class="k">当前连续</div></div>
+      <div class="ck-stat"><div class="v">${max}</div><div class="k">最长连续</div></div>
+      <div class="ck-stat"><div class="v">${total}</div><div class="k">累计打卡</div></div>
+    </div>
+    <div class="heatmap-wrap">
+      <div class="heatmap">${cells}</div>
+      <div class="heat-legend">
+        <span>少</span>
+        <i></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i>
+        <span>多</span>
+      </div>
+    </div>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.6">
+      每日答对至少 ${CHECKIN_THRESHOLD} 题即算打卡。打卡数据跟登录账号绑定，显示最近 12 周。
+    </p>`;
 }
 
 /* ═══ 统计 ═══ */
@@ -2038,8 +2033,9 @@ function renderStats(){
       <span class="nm">${v}</span>
     </div>`).join('') +
     `<p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.6">
-      词库总量 ${totalWords} 个单词，已掌握 ${mastered} 个（${Math.round(mastered / totalWords * 100)}%）。
+      已加载 ${totalWords} 个单词${indexInfo ? `（共 ${indexInfo.total} 个）` : ''}，已掌握 ${mastered} 个（${Math.round(mastered / Math.max(totalWords,1) * 100)}%）。
     </p>`;
+  renderCheckin();
   renderSourceCard();
   renderVoicePanel();
   updateCloudUI();
@@ -2049,43 +2045,34 @@ function renderStats(){
 function renderSourceCard(){
   const wrap = document.getElementById('sourceCardWrap');
   if (!wrap) return;
-  const fromCache = WORDS_META.fromCache;
-  const ts = WORDS_META.ts;
-  const tsText = ts ? new Date(ts).toLocaleString('zh-CN', {
-    year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'
-  }) : '—';
+  const totalBatches = indexInfo ? indexInfo.files.length : 0;
+  const loadedCount = loadedBatches.size;
   wrap.innerHTML = `
     <div class="source-card">
-      <div class="sc-row"><span>当前词库</span><b>${ALL_WORDS.length} 个单词</b></div>
-      <div class="sc-row"><span>数据来源</span>
-        <span class="st">${fromCache ? '📦 本地缓存' : '🌐 RSS 实时'}</span></div>
-      <div class="sc-row"><span>上次更新</span><span class="st">${tsText}</span></div>
-      <div class="sc-row"><span>RSS 地址</span>
-        <span class="st" style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(RSS_URL)}</span></div>
-      <div class="sc-row"><button class="btn-mini" id="refreshRssBtn">🔄 立即刷新词库</button></div>
+      <div class="sc-row"><span>词库总量</span><b>${indexInfo ? indexInfo.total : '—'} 个单词</b></div>
+      <div class="sc-row"><span>已加载</span>
+        <span class="st">${ALL_WORDS.length} 词 / ${loadedCount} of ${totalBatches} 批</span>
+      </div>
+      <div class="sc-row"><span>版本</span>
+        <span class="st">${indexInfo && indexInfo.version || '—'}</span>
+      </div>
+      <div class="sc-row"><button class="btn-mini" id="loadAllBtn">📥 加载全部批次</button></div>
     </div>`;
-  const btn = wrap.querySelector('#refreshRssBtn');
+  const btn = wrap.querySelector('#loadAllBtn');
   if (btn) btn.addEventListener('click', async () => {
+    if (!indexInfo) return;
+    if (!confirm(`确定要加载全部 ${indexInfo.files.length} 个批次吗？\n这会消耗一些流量，但之后完全离线可用。`)) return;
     btn.disabled = true;
-    btn.textContent = '⏳ 正在拉取…';
-    try {
-      const { words, meta } = await fetchFromRSS();
-      const changed = wordsChanged(ALL_WORDS, words);
-      writeCache(words, meta);
-      WORDS_META.fromCache = false;
-      WORDS_META.ts = Date.now();
-      if (changed){
-        applyWords(words);
-        ensureTodayWords();
-        renderAll();
-        alert('词库已更新，共 ' + ALL_WORDS.length + ' 个单词');
-      } else { alert('已是最新词库，无更新'); }
-      renderSourceCard();
-    } catch(err){
-      alert('刷新失败：' + err.message + '\n\n将继续使用本地缓存。');
-      btn.disabled = false;
-      btn.textContent = '🔄 立即刷新词库';
+    for (let i = 1; i <= indexInfo.files.length; i++){
+      if (loadedBatches.has(i)) continue;
+      btn.textContent = `⏳ 正在加载 ${i} / ${indexInfo.files.length}…`;
+      try { await loadAndAppendBatch(i); } catch(e){}
     }
+    btn.disabled = false;
+    btn.textContent = '✅ 全部已加载';
+    onBatchesLoaded();
+    renderSourceCard();
+    alert('全部批次已加载完成，共 ' + ALL_WORDS.length + ' 个单词');
   });
 }
 function renderVoicePanel(){
@@ -2134,6 +2121,12 @@ function updateBadges(){
   const mastered = Object.keys(state.records).filter(w => state.records[w].mastered).length;
   document.getElementById('masteredPill').textContent = '已掌握 ' + mastered;
   document.getElementById('duePill').textContent = '待复习 ' + due;
+  const streakPill = document.getElementById('streakPill');
+  if (currentUser){
+    const streak = getCurrentStreak();
+    if (streak >= 1){ streakPill.style.display = ''; streakPill.textContent = '🔥 ' + streak; }
+    else streakPill.style.display = 'none';
+  } else streakPill.style.display = 'none';
   const dq = dayQuizStats();
   const dayDot = document.getElementById('dayDot');
   const dayPending = dq.total - dq.pass;
@@ -2152,7 +2145,7 @@ function updateBadges(){
     revDot.style.display = 'grid';
     revDot.textContent = due;
     revDot.classList.remove('green');
-  } else { revDot.style.display = 'none'; }
+  } else revDot.style.display = 'none';
 }
 function goTab(name){
   document.querySelectorAll('.tab').forEach(t => {
@@ -2272,7 +2265,7 @@ todayContent.addEventListener('pointercancel', finishTodayDrag);
 document.getElementById('resetBtn').addEventListener('click', () => {
   if (!confirm('确定要清空全部学习数据吗？此操作不可撤销。')) return;
   localStorage.removeItem(STORE_KEY);
-  state = { records:{}, daily:{} };
+  state = { records:{}, daily:{}, checkins:{} };
   todayIdx = 0;
   engDay.phase = 'home'; engDay.mode = 'today';  engDay.queue = [];
   engRev.phase = 'home'; engRev.mode = 'review'; engRev.queue = [];
@@ -2284,8 +2277,6 @@ document.getElementById('resetBtn').addEventListener('click', () => {
 
 const bootScreen = document.getElementById('bootScreen');
 const bootInner  = document.getElementById('bootInner');
-const updateToast = document.getElementById('updateToast');
-const updateInfo  = document.getElementById('updateInfo');
 
 function showBootError(err){
   const msg = String(err && err.message ? err.message : err);
@@ -2296,7 +2287,7 @@ function showBootError(err){
     <p class="msg">${esc(msg)}</p>
     ${isFile ? `
       <div class="boot-help">
-        <b>原因：直接双击打开 HTML 时，浏览器会阻止读取本地 words.xml</b>
+        <b>原因：直接双击打开 HTML 时，浏览器会阻止读取本地文件</b>
         请用本地服务器打开，任选一种方式：
         <code>python -m http.server 8000</code>
         <code>npx serve</code>
@@ -2304,84 +2295,49 @@ function showBootError(err){
       </div>` : `
       <div class="boot-help">
         <b>请检查：</b>
-        1. words.xml 是否与 index.html 在同一目录<br>
-        2. 文件名大小写是否正确<br>
-        3. XML 格式是否合法<br>
+        1. words-index.json 是否与 index.html 在同一目录<br>
+        2. 批次文件 words-01.json ~ words-XX.json 是否都已上传<br>
+        3. 文件名大小写是否正确<br>
         4. 浏览器控制台（F12）里的具体错误信息
       </div>`}
     <button class="btn solid" id="bootRetryBtn">重新加载</button>`;
   bootInner.querySelector('#bootRetryBtn').addEventListener('click', () => location.reload());
 }
 
-async function silentUpdate(){
-  try {
-    const { words, meta } = await fetchFromRSS();
-    const changed = wordsChanged(ALL_WORDS, words);
-    writeCache(words, meta);
-
-    if (!changed){
-      WORDS_META.fromCache = true;
-      WORDS_META.ts = Date.now();
-      return;
-    }
-
-    const oldCount = ALL_WORDS.length;
-    applyWords(words);
-    ensureTodayWords();
-    renderAll();
-
-    if (Math.abs(words.length - oldCount) >= 5){
-      updateInfo.textContent = `词库已自动更新：${oldCount} → ${words.length} 个单词`;
-      updateToast.classList.add('show');
-      setTimeout(() => updateToast.classList.remove('show'), 4000);
-    }
-  } catch(err){
-    console.log('[RSS 后台更新] 失败：', err.message);
-  }
-}
-
-document.getElementById('updateNowBtn').addEventListener('click', () => {
-  updateToast.classList.remove('show');
-});
-document.getElementById('updateCloseBtn').addEventListener('click', () => {
-  updateToast.classList.remove('show');
-});
-
 async function boot(){
-  const cached = readCache();
-  if (cached){
-    try {
-      ALL_WORDS = cached.words.map(w => ({
-        word:    String(w.word || '').trim(),
-        phonetic:String(w.phonetic || '').trim(),
-        pos:     String(w.pos || '').trim(),
-        cn:      String(w.cn || '').trim(),
-        eg:      String(w.eg || '').trim()
-      })).filter(w => w.word && w.cn);
-      if (!ALL_WORDS.length) throw new Error('缓存内容无效');
-      WORD_MAP = {};
-      ALL_WORDS.forEach(w => WORD_MAP[w.word] = w);
-      WORDS_META.fromCache = true;
-      WORDS_META.ts = cached.ts || 0;
-      WORDS_META.version = cached.version || '';
-      loadState();
-      loadVoiceCfg();
-      renderAll();
-      bootScreen.classList.add('hide');
-      setTimeout(() => bootScreen.remove(), 350);
+  loadBatchCache();
+  loadState();
+  loadVoiceCfg();
 
-      silentUpdate();
-      return;
-    } catch(err){ console.log('[缓存解析失败]', err); }
+  const restored = restoreBatchesFromCache();
+  if (restored > 0){
+    console.log(`[词库] 从缓存恢复 ${restored} 批，共 ${ALL_WORDS.length} 词`);
+    renderAll();
+    bootScreen.classList.add('hide');
+    setTimeout(() => bootScreen.remove(), 350);
+
+    /* 后台更新索引 + 补充已学词 */
+    loadIndex().then(async info => {
+      indexInfo = info;
+      await ensureLearnedWordsLoaded();
+      renderAll();
+      renderSourceCard();
+    }).catch(err => console.warn('[索引加载失败]', err.message));
+    return;
   }
+
   try {
-    const { words, meta } = await fetchFromRSS();
-    applyWords(words);
-    writeCache(words, meta);
-    WORDS_META.fromCache = false;
-    WORDS_META.ts = Date.now();
-    loadState();
-    loadVoiceCfg();
+    indexInfo = await loadIndex();
+    console.log(`[词库] 索引加载完成，共 ${indexInfo.files.length} 批 / ${indexInfo.total} 词`);
+
+    const preload = Math.min(PRELOAD_BATCHES, indexInfo.files.length);
+    for (let i = 1; i <= preload; i++){
+      try { await loadAndAppendBatch(i); } catch(e){}
+    }
+    if (!ALL_WORDS.length) throw new Error('首批词库加载失败');
+
+    await ensureLearnedWordsLoaded();
+    ensureTodayWords();
     renderAll();
     bootScreen.classList.add('hide');
     setTimeout(() => bootScreen.remove(), 350);
