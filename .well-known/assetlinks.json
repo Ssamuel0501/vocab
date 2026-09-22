@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "dev.pages.vocab_8cq.twa",
+        "sha256_cert_fingerprints": ["06:60:F0:70:58:3D:F9:C9:26:16:4F:7F:6E:EF:58:30:4A:07:4A:A2:1B:99:E9:AE:93:B5:94:60:5B:AE:FD:28"]
+      }
+    }]
