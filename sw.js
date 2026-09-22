@@ -1,5 +1,5 @@
 /* Service Worker：离线缓存 */
-const CACHE_NAME = 'vocab-shell-v1';
+const CACHE_NAME = 'vocab-shell-v3';
 const SHELL = [
   './',
   './index.html',
@@ -29,9 +29,9 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
-  /* 动态内容走网络 */
+  /* 词库 JSON 与外部接口走网络，不缓存 */
   if (
-    url.pathname.endsWith('.xml') ||
+    url.pathname.endsWith('.json') ||
     url.hostname.includes('workers.dev') ||
     url.hostname.includes('rss2json') ||
     url.hostname.includes('youdao') ||
