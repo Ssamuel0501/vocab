@@ -836,10 +836,9 @@
    ═══════════════════════════════════════════════════════════ */
 const RSS_URL = './words.xml';
 const PROXY   = '';
-const SUPABASE_URL      = 'https://xxxxx.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJxxxxx';
+const SUPABASE_URL      = 'https://nzredlyjvpvbhttyfmiy.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_B53wvfMghC1NGNH7Gbikbw_EhzBoXYZ';
 
-/* 【改动 1】缓存时间改为 0，每次打开都检查 */
 const CACHE_TTL      = 0;
 const WORD_CACHE_KEY = 'gradVocabWordsCache_v1';
 const STORE_KEY      = 'gradVocabEbbinghaus_v8';
@@ -1228,7 +1227,7 @@ function renderToday(){
         </div>
         <div class="tc-body">
           <div class="tc-meaning blur">${esc(d.pos)} ${esc(d.cn)}</div>
-          <div class="tc-example blur">${esc(d.eg)}</div>
+          ${d.eg ? `<div class="tc-example blur">${esc(d.eg)}</div>` : ''}
           <button class="tc-reveal">点击显示释义</button>
         </div>
       </div>
@@ -1407,13 +1406,13 @@ function judge(eng, skipped){
     fb.innerHTML = `<div class="tag ok">✓ 回答正确</div>
       <div class="ans">${esc(word)}</div>
       <div class="ph">${esc(d.phonetic)}</div>
-      <div class="eg">${esc(d.eg)}</div>`;
+      ${d.eg ? `<div class="eg">${esc(d.eg)}</div>` : ''}`;
   } else {
     eng.wrong.push(word);
     fb.innerHTML = `<div class="tag no">${skipped ? '已跳过' : '✗ 回答错误'}</div>
       <div class="ans">${esc(word)}</div>
       <div class="ph">${esc(d.phonetic)} · ${esc(d.pos)} ${esc(d.cn)}</div>
-      <div class="eg">${esc(d.eg)}</div>`;
+      ${d.eg ? `<div class="eg">${esc(d.eg)}</div>` : ''}`;
   }
   const row = card.querySelector('.q-submit-row');
   row.innerHTML = `<button class="btn solid q-next" style="width:100%;max-width:320px">${eng.idx + 1 >= eng.queue.length ? '查看结果' : '下一题 →'}</button>`;
@@ -2314,7 +2313,6 @@ function showBootError(err){
   bootInner.querySelector('#bootRetryBtn').addEventListener('click', () => location.reload());
 }
 
-/* 【改动 3】静默更新：有变化时直接应用，不打断用户 */
 async function silentUpdate(){
   try {
     const { words, meta } = await fetchFromRSS();
@@ -2372,7 +2370,6 @@ async function boot(){
       bootScreen.classList.add('hide');
       setTimeout(() => bootScreen.remove(), 350);
 
-      /* 【改动 2】每次打开都后台检查一次，不阻塞首屏 */
       silentUpdate();
       return;
     } catch(err){ console.log('[缓存解析失败]', err); }
