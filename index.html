@@ -90,13 +90,20 @@
     font-size:12.5px;margin:6px 0;overflow-x:auto;white-space:nowrap;
   }
 
+  /* ══════ 更新提示条（顶部弹出） ══════ */
   .update-toast{
-    position:fixed;bottom:calc(80px + var(--safe-bottom));
-    left:50%;transform:translateX(-50%) translateY(140%);
-    z-index:800;background:var(--card);border:1px solid var(--line);
-    border-radius:16px;padding:12px 14px;
+    position:fixed;
+    top:calc(60px + var(--safe-top));
+    left:50%;
+    transform:translateX(-50%) translateY(-140%);
+    z-index:800;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:12px 14px;
     box-shadow:0 12px 32px rgba(15,23,42,.22);
-    display:flex;align-items:center;gap:10px;font-size:13.5px;
+    display:flex;align-items:center;gap:10px;
+    font-size:13.5px;
     max-width:calc(100vw - 24px);
     transition:transform .35s cubic-bezier(.2,.8,.3,1);
   }
@@ -550,6 +557,7 @@
     .vp-row select{max-width:160px;font-size:13px}
     .source-card{padding:13px 14px;font-size:12.5px}
     .source-card .btn-mini{padding:9px 12px;font-size:12px}
+    .update-toast{top:calc(56px + var(--safe-top));font-size:13px;padding:11px 12px}
   }
   @media (max-width:380px){
     .brand{font-size:13.5px}
@@ -727,10 +735,12 @@ const DAILY_COUNT     = 20;
 const INTERVALS       = [1, 2, 4, 7, 15, 30];
 const CHECKIN_THRESHOLD = 10;
 
+const UPLOAD_DEBOUNCE_MS = 1000;
+const FORCE_UPLOAD_EVERY = 5;
+
 const isTouch = matchMedia('(hover: none)').matches;
 const SWIPE_THRESHOLD = isTouch ? 48 : 80;
 
-/* ═══ 工具 ═══ */
 function todayStr(){
   const d = new Date();
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -882,7 +892,7 @@ function schedulePoolCheck(){
   }, 3000);
 }
 
-/* ═══ 打卡（仅登录后记录） ═══ */
+/* ═══ 打卡 ═══ */
 function recordCheckin(isCorrect){
   if (!currentUser) return;
   if (!state.checkins) state.checkins = {};
@@ -1016,6 +1026,13 @@ function applyAnswer(word, isCorrect, mode){
   r.reviews++;
   if (isCorrect) r.correct++; else r.wrong++;
   recordCheckin(isCorrect);
+
+  state._answerCount = (state._answerCount || 0) + 1;
+  if (state._answerCount % FORCE_UPLOAD_EVERY === 0 && sb && currentUser){
+    clearTimeout(uploadTimer);
+    uploadToCloud();
+  }
+
   if (mode === 'today'){
     r.dayQuiz = isCorrect ? 'pass' : 'fail';
     r.dayQuizDate = t;
@@ -1664,7 +1681,15 @@ function answerExam(opt){
   engCn.picked = opt;
   if (ok) engCn.correct++;
   else engCn.wrong.push(word);
+
   recordCheckin(ok);
+
+  state._answerCount = (state._answerCount || 0) + 1;
+  if (state._answerCount % FORCE_UPLOAD_EVERY === 0 && sb && currentUser){
+    clearTimeout(uploadTimer);
+    uploadToCloud();
+  }
+
   saveState();
   renderEnCn();
   clearTimeout(engCn.autoTimer);
@@ -1820,7 +1845,7 @@ async function uploadToCloud(){
 function scheduleUpload(){
   if (!sb || !currentUser) return;
   clearTimeout(uploadTimer);
-  uploadTimer = setTimeout(uploadToCloud, 3000);
+  uploadTimer = setTimeout(uploadToCloud, UPLOAD_DEBOUNCE_MS);
 }
 function updateCloudUI(){
   const loginView = document.getElementById('cloudLoginView');
@@ -2293,6 +2318,8 @@ document.getElementById('resetBtn').addEventListener('click', () => {
 
 const bootScreen = document.getElementById('bootScreen');
 const bootInner  = document.getElementById('bootInner');
+const updateToast = document.getElementById('updateToast');
+const updateInfo  = document.getElementById('updateInfo');
 
 function showBootError(err){
   const msg = String(err && err.message ? err.message : err);
@@ -2319,6 +2346,19 @@ function showBootError(err){
     <button class="btn solid" id="bootRetryBtn">重新加载</button>`;
   bootInner.querySelector('#bootRetryBtn').addEventListener('click', () => location.reload());
 }
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && sb && currentUser){
+    clearTimeout(uploadTimer);
+    uploadToCloud();
+  }
+});
+window.addEventListener('pagehide', () => {
+  if (sb && currentUser){
+    clearTimeout(uploadTimer);
+    uploadToCloud();
+  }
+});
 
 async function boot(){
   loadBatchCache();
