@@ -29,7 +29,6 @@
     --safe-bottom:env(safe-area-inset-bottom,0px);
     --safe-left:env(safe-area-inset-left,0px);
     --safe-right:env(safe-area-inset-right,0px);
-    /* 触摸目标最小高度 */
     --tap:44px;
   }
   body.dark{
@@ -49,29 +48,24 @@
     transition:background .3s,color .3s;
     -webkit-touch-callout:none;
     overscroll-behavior-y:contain;
-    /* 防止 iOS 双击缩放 */
     touch-action:manipulation;
   }
 
-  /* 所有按钮：触摸反馈 + 触摸目标 */
   button{
     touch-action:manipulation;
     font-family:inherit;
     -webkit-user-select:none;user-select:none;
   }
 
-  /* 输入框：禁止 iOS 自动大写、自动纠正 */
   input, textarea{
     -webkit-appearance:none;
     appearance:none;
   }
 
-  /* 输入框字号至少 16px，防止 iOS 聚焦时自动缩放 */
   input[type="text"], input[type="email"], input[type="password"]{
     font-size:16px;
   }
 
-  /* 触摸设备：所有按钮按下缩放反馈 */
   @media (hover:none){
     .btn:active{transform:scale(.97);opacity:.88}
     .mini:active{background:var(--primary-soft);color:var(--primary);transform:scale(.96)}
@@ -86,7 +80,6 @@
     .btn-mini:active{background:var(--primary);color:#fff;transform:scale(.97)}
   }
 
-  /* ── 启动遮罩 ── */
   .boot-screen{
     position:fixed;inset:0;z-index:999;background:var(--bg);
     display:flex;align-items:center;justify-content:center;
@@ -117,7 +110,6 @@
     font-size:12.5px;margin:6px 0;overflow-x:auto;white-space:nowrap;
   }
 
-  /* ── 更新提示条 ── */
   .update-toast{
     position:fixed;
     bottom:calc(16px + var(--safe-bottom));
@@ -140,7 +132,6 @@
   }
   .update-toast .close{background:transparent;color:var(--muted);padding:6px;font-size:16px;line-height:1;min-height:36px;min-width:36px}
 
-  /* ── 顶栏 ── */
   .topbar{
     position:sticky;top:0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -170,7 +161,6 @@
     display:grid;place-items:center;
   }
 
-  /* ── 选项卡 ── */
   .tabs{
     display:flex;gap:6px;
     padding:10px calc(14px + var(--safe-right)) 0 calc(14px + var(--safe-left));
@@ -201,7 +191,6 @@
   }
   .tab .dot.green{background:var(--ok)}
 
-  /* ── 主内容 ── */
   main{
     max-width:1080px;margin:0 auto;
     padding:14px calc(14px + var(--safe-right)) calc(28px + var(--safe-bottom)) calc(14px + var(--safe-left));
@@ -230,7 +219,6 @@
   }
   .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
 
-  /* ── 工具条 ── */
   .day-tools{
     display:flex;align-items:center;justify-content:space-between;
     gap:12px;flex-wrap:wrap;
@@ -245,7 +233,6 @@
   .dt-chip.ok{background:rgba(16,185,129,.15);color:var(--ok)}
   .dt-chip.new{background:rgba(99,102,241,.15);color:var(--primary)}
 
-  /* ── 今日新词卡片（单张滑动） ── */
   .today-deck{
     position:relative;max-width:560px;margin:0 auto;
     overscroll-behavior:contain;
@@ -279,7 +266,6 @@
     font-weight:900;letter-spacing:.3px;
     text-align:center;line-height:1.15;
     word-break:break-word;margin-bottom:8px;
-    /* 长单词自动缩小 */
     overflow-wrap:anywhere;
   }
   .tc-phon{
@@ -315,7 +301,6 @@
     min-height:var(--tap);
   }
 
-  /* ── 今日新词导航 ── */
   .today-nav{
     display:flex;align-items:center;justify-content:space-between;
     gap:10px;max-width:560px;margin:16px auto 0;
@@ -343,12 +328,10 @@
   .blur{filter:blur(6px);user-select:none;transition:filter .3s;cursor:pointer}
   .blur.show{filter:none;user-select:auto;cursor:auto}
 
-  /* ── 空状态 ── */
   .empty{text-align:center;padding:40px 20px;color:var(--muted)}
   .empty .big{font-size:46px;margin-bottom:10px;opacity:.75}
   .empty p{font-size:14px}
 
-  /* ── 默写 ── */
   .quiz-head{
     display:flex;align-items:center;justify-content:space-between;
     font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px;
@@ -381,7 +364,6 @@
     background:var(--bg);color:var(--text);outline:none;
     transition:border-color .2s,background .2s;
     min-height:52px;
-    /* 关键：避免 iOS 聚焦缩放 */
     font-size:16px;
   }
   .q-input:focus{border-color:var(--primary);background:var(--card)}
@@ -405,7 +387,6 @@
   .q-fb .ph{font-size:13px;color:var(--primary);font-weight:600;margin-bottom:4px}
   .q-fb .eg{font-size:13px;color:var(--muted);font-style:italic;line-height:1.55}
 
-  /* ── 结果页 ── */
   .result{text-align:center;padding:14px 0}
   .result .num{
     font-size:50px;font-weight:900;line-height:1.15;
@@ -420,7 +401,6 @@
   }
   .wrong-list b{color:var(--primary)}
 
-  /* ── 统计 ── */
   .stat-grid{
     display:grid;gap:10px;margin-bottom:20px;
     grid-template-columns:repeat(2,1fr);
@@ -438,7 +418,6 @@
   .dist-row .nm{flex:0 0 34px;text-align:right;font-weight:700;color:var(--primary)}
   .danger{background:rgba(239,68,68,.1);color:var(--bad)}
 
-  /* ── 英译中 ── */
   .scope-switch{display:flex;gap:10px;margin-bottom:12px}
   .scope-btn{
     flex:1;border:1.5px solid var(--line);background:var(--card);
@@ -540,7 +519,6 @@
     margin-top:10px;opacity:.85;
   }
 
-  /* 自动跳下一题的进度提示 */
   .sc-auto{
     margin-top:12px;
     display:flex;align-items:center;justify-content:center;gap:10px;
@@ -560,13 +538,11 @@
     to{width:100%}
   }
 
-  /* ── 底部 ── */
   .foot{
     text-align:center;font-size:12px;color:var(--muted);
     padding:24px calc(14px + var(--safe-right)) calc(24px + var(--safe-bottom)) calc(14px + var(--safe-left));
   }
 
-  /* ── 语音设置 ── */
   .vp-row{
     display:flex;align-items:center;justify-content:space-between;
     gap:12px;margin-bottom:12px;font-size:13px;
@@ -587,7 +563,6 @@
   }
   .vp-toggle input{width:20px;height:20px;accent-color:var(--primary);cursor:pointer}
 
-  /* ── 云同步 / 备份卡片 ── */
   .source-card{
     background:var(--primary-soft);
     border-radius:14px;padding:14px 16px;margin-bottom:16px;
@@ -609,7 +584,7 @@
   .source-card input[type=email],
   .source-card input[type=password]{
     transition:border-color .2s,background .2s;
-    font-size:16px; /* 防止 iOS 缩放 */
+    font-size:16px;
   }
   .source-card input[type=email]:focus,
   .source-card input[type=password]:focus{
@@ -617,9 +592,6 @@
     background:var(--card)!important;
   }
 
-  /* ═══════════════════════════════════════════
-     手机端专属优化（≤ 640px）
-     ═══════════════════════════════════════════ */
   @media (max-width:640px){
     .brand{font-size:14.5px}
     .brand .brand-sub{display:none}
@@ -641,7 +613,6 @@
     }
     .day-tools .btn{width:100%}
 
-    /* 今日新词卡片 */
     .today-card{
       padding:18px 16px 16px;
       min-height:min(56dvh,400px);
@@ -654,13 +625,11 @@
     .tc-meaning{font-size:17px}
     .tc-example{font-size:13px;line-height:1.6}
 
-    /* 今日新词导航 */
     .today-nav{gap:8px;margin-top:14px}
     .nav-btn{padding:11px 13px;font-size:12.5px;min-height:46px}
     .nav-idx{font-size:13px}
     .nav-bar{max-width:140px}
 
-    /* 默写 */
     .quiz-head{font-size:12.5px}
     .qcard .cn{font-size:clamp(20px,5.5vw,24px);margin-bottom:18px}
     .q-input{
@@ -673,18 +642,15 @@
     .q-fb .ph{font-size:12.5px}
     .q-fb .eg{font-size:12.5px;line-height:1.55}
 
-    /* 结果 */
     .result .num{font-size:44px}
     .result .lbl{font-size:13px;margin-bottom:18px}
     .wrong-list{padding:13px 14px;font-size:13px}
 
-    /* 统计 */
     .stat-grid{gap:9px}
     .stat{padding:14px 8px;border-radius:12px}
     .stat .v{font-size:21px}
     .stat .k{font-size:11.5px}
 
-    /* 英译中 */
     .scope-btn{padding:14px 8px;font-size:13.5px;min-height:54px}
     .scope-btn b{font-size:14px}
     .deck{height:clamp(370px,55dvh,440px)}
@@ -699,17 +665,12 @@
     .sc-auto{font-size:11.5px;margin-top:10px}
     .sc-auto .bar-mini{width:80px}
 
-    /* 语音 */
     .vp-row select{max-width:160px;font-size:13px}
 
-    /* 云同步 / 备份卡片 */
     .source-card{padding:13px 14px;font-size:12.5px}
     .source-card .btn-mini{padding:9px 12px;font-size:12px}
   }
 
-  /* ═══════════════════════════════════════════
-     超窄屏（<380px）
-     ═══════════════════════════════════════════ */
   @media (max-width:380px){
     .brand{font-size:13.5px}
     .brand .brand-sub{display:none}
@@ -722,9 +683,6 @@
     .deck{height:clamp(340px,52dvh,410px)}
   }
 
-  /* ═══════════════════════════════════════════
-     横屏手机
-     ═══════════════════════════════════════════ */
   @media (max-height:520px) and (orientation:landscape){
     .topbar{padding-top:calc(8px + var(--safe-top));padding-bottom:8px}
     .today-card{min-height:280px;padding:16px 16px}
@@ -742,7 +700,6 @@
     .foot{padding:12px 14px calc(14px + var(--safe-bottom))}
   }
 
-  /* 尊重系统减弱动效 */
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{
       animation-duration:.01ms!important;
@@ -882,7 +839,8 @@ const PROXY   = '';
 const SUPABASE_URL      = 'https://xxxxx.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJxxxxx';
 
-const CACHE_TTL      = 24 * 60 * 60 * 1000;
+/* 【改动 1】缓存时间改为 0，每次打开都检查 */
+const CACHE_TTL      = 0;
 const WORD_CACHE_KEY = 'gradVocabWordsCache_v1';
 const STORE_KEY      = 'gradVocabEbbinghaus_v8';
 const VOICE_KEY      = 'gradVocabVoice_v1';
@@ -2355,26 +2313,37 @@ function showBootError(err){
     <button class="btn solid" id="bootRetryBtn">重新加载</button>`;
   bootInner.querySelector('#bootRetryBtn').addEventListener('click', () => location.reload());
 }
+
+/* 【改动 3】静默更新：有变化时直接应用，不打断用户 */
 async function silentUpdate(){
   try {
     const { words, meta } = await fetchFromRSS();
     const changed = wordsChanged(ALL_WORDS, words);
     writeCache(words, meta);
-    if (!changed){ WORDS_META.fromCache = true; WORDS_META.ts = Date.now(); return; }
-    updateInfo.textContent = `从 ${ALL_WORDS.length} 个 → ${words.length} 个单词`;
-    updateToast.classList.add('show');
-    updateToast._pendingWords = words;
-    updateToast._pendingMeta  = meta;
-  } catch(err){ console.log('[RSS 后台更新] 失败：', err.message); }
+
+    if (!changed){
+      WORDS_META.fromCache = true;
+      WORDS_META.ts = Date.now();
+      return;
+    }
+
+    const oldCount = ALL_WORDS.length;
+    applyWords(words);
+    ensureTodayWords();
+    renderAll();
+
+    if (Math.abs(words.length - oldCount) >= 5){
+      updateInfo.textContent = `词库已自动更新：${oldCount} → ${words.length} 个单词`;
+      updateToast.classList.add('show');
+      setTimeout(() => updateToast.classList.remove('show'), 4000);
+    }
+  } catch(err){
+    console.log('[RSS 后台更新] 失败：', err.message);
+  }
 }
+
 document.getElementById('updateNowBtn').addEventListener('click', () => {
-  const words = updateToast._pendingWords;
-  if (!words){ updateToast.classList.remove('show'); return; }
-  applyWords(words);
-  ensureTodayWords();
-  renderAll();
   updateToast.classList.remove('show');
-  alert('词库已更新，共 ' + ALL_WORDS.length + ' 个单词');
 });
 document.getElementById('updateCloseBtn').addEventListener('click', () => {
   updateToast.classList.remove('show');
@@ -2402,9 +2371,9 @@ async function boot(){
       renderAll();
       bootScreen.classList.add('hide');
       setTimeout(() => bootScreen.remove(), 350);
-      const expired = Date.now() - (cached.ts || 0) > CACHE_TTL;
-      if (expired) silentUpdate();
-      else setTimeout(silentUpdate, 3000);
+
+      /* 【改动 2】每次打开都后台检查一次，不阻塞首屏 */
+      silentUpdate();
       return;
     } catch(err){ console.log('[缓存解析失败]', err); }
   }
