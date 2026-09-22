@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>研究生英语学术词汇</title>
+    <link>https://example.com</link>
+    <description>基于艾宾浩斯遗忘曲线的学术词汇词库</description>
+    <language>zh-CN</language>
+
+    <item><title>hypothesis</title><description><![CDATA[/haɪˈpɒθəsɪs/|n.|假设；假说|The data support our original hypothesis.]]></description></item>
+    <item><title>empirical</title><description><![CDATA[/ɪmˈpɪrɪkl/|adj.|经验的；实证的|The theory lacks empirical evidence.]]></description></item>
+    <item><title>paradigm</title><description><![CDATA[/ˈpærədaɪm/|n.|范式；典范|This discovery shifted the scientific paradigm.]]></description></item>
+    <item><title>methodology</title><description><![CDATA[/ˌmeθəˈdɒlədʒi/|n.|方法论；研究方法|We must clarify the research methodology first.]]></description></item>
+    <item><title>correlation</title><description><![CDATA[/ˌkɒrəˈleɪʃn/|n.|相关性；关联|There is a strong correlation between the two variables.]]></description></item>
+    <item><title>comprehensive</title><description><![CDATA[/ˌkɒmprɪˈhensɪv/|adj.|全面的；综合的|The report offers a comprehensive analysis.]]></description></item>
+    <item><title>ambiguous</title><description><![CDATA[/æmˈbɪɡjuəs/|adj.|模糊的；有歧义的|His answer was deliberately ambiguous.]]></description></item>
+    <item><title>facilitate</title><description><![CDATA[/fəˈsɪlɪteɪt/|v.|促进；使便利|Technology facilitates collaborative learning.]]></description></item>
+    <item><title>undermine</title><description><![CDATA[/ˌʌndəˈmaɪn/|v.|削弱；动摇|Such errors could undermine public trust.]]></description></item>
+    <item><title>coherent</title><description><![CDATA[/kəʊˈhɪərənt/|adj.|连贯的；有条理的|Your essay needs a more coherent structure.]]></description></item>
+    <item><title>preliminary</title><description><![CDATA[/prɪˈlɪmɪnəri/|adj.|初步的；预备的|These are only preliminary findings.]]></description></item>
+    <item><title>significant</title><description><![CDATA[/sɪɡˈnɪfɪkənt/|adj.|显著的；重要的|The results show a significant difference.]]></description></item>
+    <item><title>arbitrary</title><description><![CDATA[/ˈɑːbɪtrəri/|adj.|任意的；武断的|The choice of sample size seems arbitrary.]]></description></item>
+    <item><title>explicit</title><description><![CDATA[/ɪkˈsplɪsɪt/|adj.|明确的；清晰的|The instructions should be explicit.]]></description></item>
+    <item><title>implicit</title><description><![CDATA[/ɪmˈplɪsɪt/|adj.|含蓄的；隐含的|There is an implicit assumption here.]]></description></item>
+    <item><title>inherent</title><description><![CDATA[/ɪnˈhɪərənt/|adj.|固有的；内在的|Risk is inherent in any investment.]]></description></item>
+    <item><title>intrinsic</title><description><![CDATA[/ɪnˈtrɪnsɪk/|adj.|本质的；内在的|Curiosity has intrinsic value.]]></description></item>
+    <item><title>plausible</title><description><![CDATA[/ˈplɔːzəbl/|adj.|似乎合理的|That sounds like a plausible explanation.]]></description></item>
+    <item><title>prevalent</title><description><![CDATA[/ˈprevələnt/|adj.|普遍的；流行的|The disease is prevalent in rural areas.]]></description></item>
+    <item><title>subsequent</title><description><![CDATA[/ˈsʌbsɪkwənt/|adj.|随后的；后来的|Subsequent studies confirmed the result.]]></description></item>
+    <item><title>substantial</title><description><![CDATA[/səbˈstænʃl/|adj.|大量的；实质的|There is substantial evidence for this claim.]]></description></item>
+    <item><title>valid</title><description><![CDATA[/ˈvælɪd/|adj.|有效的；正当的|The argument is logically valid.]]></description></item>
+    <item><title>relevant</title><description><![CDATA[/ˈreləvənt/|adj.|相关的；切题的|Please cite relevant literature.]]></description></item>
+    <item><title>derive</title><description><![CDATA[/dɪˈraɪv/|v.|得到；源于|The word derives from Latin.]]></description></item>
+    <item><title>imply</title><description><![CDATA[/ɪmˈplaɪ/|v.|暗示；意味着|His silence implies agreement.]]></description></item>
+    <item><title>infer</title><description><![CDATA[/ɪnˈfɜː(r)/|v.|推断；推论|We can infer the cause from the data.]]></description></item>
+    <item><title>constitute</title><description><![CDATA[/ˈkɒnstɪtjuːt/|v.|构成；组成|Women constitute half of the workforce.]]></description></item>
+    <item><title>attribute</title><description><![CDATA[/əˈtrɪbjuːt/|v.|归因于|He attributes his success to hard work.]]></description></item>
+    <item><title>assess</title><description><![CDATA[/əˈses/|v.|评估；评定|We need to assess the risks carefully.]]></description></item>
+    <item><title>comprise</title><description><![CDATA[/kəmˈpraɪz/|v.|包含；由……组成|The committee comprises ten members.]]></description></item>
+    <item><title>contradict</title><description><![CDATA[/ˌkɒntrəˈdɪkt/|v.|反驳；与……矛盾|The findings contradict earlier reports.]]></description></item>
+    <item><title>demonstrate</title><description><![CDATA[/ˈdemənstreɪt/|v.|证明；演示|The experiment demonstrates the principle.]]></description></item>
+    <item><title>distinguish</title><description><![CDATA[/dɪˈstɪŋɡwɪʃ/|v.|区分；辨别|We must distinguish fact from opinion.]]></description></item>
+    <item><title>eliminate</title><description><![CDATA[/ɪˈlɪmɪneɪt/|v.|消除；排除|We should eliminate all possible errors.]]></description></item>
+    <item><title>emphasize</title><description><![CDATA[/ˈemfəsaɪz/|v.|强调；着重|The author emphasizes the need for reform.]]></description></item>
+    <item><title>evaluate</title><description><![CDATA[/ɪˈvæljueɪt/|v.|评价；评估|It is hard to evaluate the long-term impact.]]></description></item>
+    <item><title>illustrate</title><description><![CDATA[/ˈɪləstreɪt/|v.|说明；举例说明|The chart illustrates the trend clearly.]]></description></item>
+    <item><title>indicate</title><description><![CDATA[/ˈɪndɪkeɪt/|v.|表明；指出|The results indicate a clear pattern.]]></description></item>
+    <item><title>integrate</title><description><![CDATA[/ˈɪntɪɡreɪt/|v.|整合；融入|We should integrate theory with practice.]]></description></item>
+    <item><title>justify</title><description><![CDATA[/ˈdʒʌstɪfaɪ/|v.|证明……正当|Nothing can justify such behaviour.]]></description></item>
+  </channel>
+</rss>
