@@ -90,33 +90,6 @@
     font-size:12.5px;margin:6px 0;overflow-x:auto;white-space:nowrap;
   }
 
-  /* ══════ 更新提示条（顶部弹出） ══════ */
-  .update-toast{
-    position:fixed;
-    top:calc(60px + var(--safe-top));
-    left:50%;
-    transform:translateX(-50%) translateY(-140%);
-    z-index:800;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:12px 14px;
-    box-shadow:0 12px 32px rgba(15,23,42,.22);
-    display:flex;align-items:center;gap:10px;
-    font-size:13.5px;
-    max-width:calc(100vw - 24px);
-    transition:transform .35s cubic-bezier(.2,.8,.3,1);
-  }
-  .update-toast.show{transform:translateX(-50%) translateY(0)}
-  .update-toast .txt{flex:1;min-width:0;color:var(--text);font-weight:600;line-height:1.4}
-  .update-toast .txt small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
-  .update-toast button{
-    border:none;cursor:pointer;font-weight:700;
-    padding:9px 14px;border-radius:10px;font-size:12.5px;
-    background:var(--primary);color:#fff;white-space:nowrap;flex:0 0 auto;min-height:36px;
-  }
-  .update-toast .close{background:transparent;color:var(--muted);padding:6px;font-size:16px;line-height:1;min-height:36px;min-width:36px}
-
   .topbar{
     position:sticky;top:0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -140,7 +113,6 @@
     transition:transform .2s,background .2s;display:grid;place-items:center;
   }
 
-  /* ══════ 底部固定导航 ══════ */
   .tabs{
     position:fixed;
     bottom:0;left:0;right:0;
@@ -557,7 +529,6 @@
     .vp-row select{max-width:160px;font-size:13px}
     .source-card{padding:13px 14px;font-size:12.5px}
     .source-card .btn-mini{padding:9px 12px;font-size:12px}
-    .update-toast{top:calc(56px + var(--safe-top));font-size:13px;padding:11px 12px}
   }
   @media (max-width:380px){
     .brand{font-size:13.5px}
@@ -708,15 +679,6 @@
 
 <p class="foot">艾宾浩斯遗忘曲线 · 间隔复习 1 → 2 → 4 → 7 → 15 → 30 天</p>
 
-<div class="update-toast" id="updateToast">
-  <div class="txt">
-    词库有新版本
-    <small id="updateInfo">点击刷新即可更新</small>
-  </div>
-  <button id="updateNowBtn">刷新</button>
-  <button class="close" id="updateCloseBtn">✕</button>
-</div>
-
 <script>
 /* ═══════════════════════════════════════════════════════════
    配置区
@@ -735,12 +697,18 @@ const DAILY_COUNT     = 20;
 const INTERVALS       = [1, 2, 4, 7, 15, 30];
 const CHECKIN_THRESHOLD = 10;
 
+/* 实时保存 */
 const UPLOAD_DEBOUNCE_MS = 1000;
 const FORCE_UPLOAD_EVERY = 5;
+
+/* 词库索引自动检查：24 小时一次 */
+const INDEX_CHECK_KEY = 'gradVocabIndexCheck_v1';
+const INDEX_CHECK_INTERVAL = 24 * 60 * 60 * 1000;
 
 const isTouch = matchMedia('(hover: none)').matches;
 const SWIPE_THRESHOLD = isTouch ? 48 : 80;
 
+/* ═══ 工具 ═══ */
 function todayStr(){
   const d = new Date();
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -764,6 +732,17 @@ function shuffle(arr){
 function esc(s){
   return String(s).replace(/[&<>"']/g, c =>
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ═══ 词库索引自动检查（24 小时一次） ═══ */
+function shouldCheckIndex(){
+  try {
+    const last = Number(localStorage.getItem(INDEX_CHECK_KEY) || 0);
+    return Date.now() - last > INDEX_CHECK_INTERVAL;
+  } catch(e){ return true; }
+}
+function markIndexChecked(){
+  try { localStorage.setItem(INDEX_CHECK_KEY, String(Date.now())); } catch(e){}
 }
 
 /* ═══ 分批词库 ═══ */
@@ -2098,22 +2077,52 @@ function renderSourceCard(){
         <span class="st">${indexInfo && indexInfo.version || '—'}</span>
       </div>
       <div class="sc-row"><button class="btn-mini" id="loadAllBtn">📥 加载全部批次</button></div>
+      <div class="sc-row"><button class="btn-mini" id="refreshRssBtn">🔄 立即刷新词库</button></div>
     </div>`;
-  const btn = wrap.querySelector('#loadAllBtn');
-  if (btn) btn.addEventListener('click', async () => {
+  const loadAllBtn = wrap.querySelector('#loadAllBtn');
+  if (loadAllBtn) loadAllBtn.addEventListener('click', async () => {
     if (!indexInfo) return;
     if (!confirm(`确定要加载全部 ${indexInfo.files.length} 个批次吗？\n这会消耗一些流量，但之后完全离线可用。`)) return;
-    btn.disabled = true;
+    loadAllBtn.disabled = true;
     for (let i = 1; i <= indexInfo.files.length; i++){
       if (loadedBatches.has(i)) continue;
-      btn.textContent = `⏳ 正在加载 ${i} / ${indexInfo.files.length}…`;
+      loadAllBtn.textContent = `⏳ 正在加载 ${i} / ${indexInfo.files.length}…`;
       try { await loadAndAppendBatch(i); } catch(e){}
     }
-    btn.disabled = false;
-    btn.textContent = '✅ 全部已加载';
+    loadAllBtn.disabled = false;
+    loadAllBtn.textContent = '✅ 全部已加载';
     onBatchesLoaded();
     renderSourceCard();
     alert('全部批次已加载完成，共 ' + ALL_WORDS.length + ' 个单词');
+  });
+
+  const refreshBtn = wrap.querySelector('#refreshRssBtn');
+  if (refreshBtn) refreshBtn.addEventListener('click', async () => {
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = '⏳ 正在拉取…';
+    try {
+      const newInfo = await loadIndex();
+      const oldCount = indexInfo ? indexInfo.files.length : 0;
+      indexInfo = newInfo;
+      markIndexChecked();
+      /* 加载新增的批次 */
+      for (let i = 1; i <= newInfo.files.length; i++){
+        if (loadedBatches.has(i)) continue;
+        try { await loadAndAppendBatch(i); } catch(e){}
+      }
+      onBatchesLoaded();
+      renderSourceCard();
+      const added = newInfo.files.length - oldCount;
+      if (added > 0){
+        alert(`词库已更新：新增 ${added} 个批次，当前共 ${ALL_WORDS.length} 个单词`);
+      } else {
+        alert('已是最新词库');
+      }
+    } catch(err){
+      alert('刷新失败：' + err.message);
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = '🔄 立即刷新词库';
+    }
   });
 }
 function renderVoicePanel(){
@@ -2306,6 +2315,7 @@ todayContent.addEventListener('pointercancel', finishTodayDrag);
 document.getElementById('resetBtn').addEventListener('click', () => {
   if (!confirm('确定要清空全部学习数据吗？此操作不可撤销。')) return;
   localStorage.removeItem(STORE_KEY);
+  localStorage.removeItem(INDEX_CHECK_KEY);
   state = { records:{}, daily:{}, checkins:{} };
   todayIdx = 0;
   engDay.phase = 'home'; engDay.mode = 'today';  engDay.queue = [];
@@ -2318,8 +2328,6 @@ document.getElementById('resetBtn').addEventListener('click', () => {
 
 const bootScreen = document.getElementById('bootScreen');
 const bootInner  = document.getElementById('bootInner');
-const updateToast = document.getElementById('updateToast');
-const updateInfo  = document.getElementById('updateInfo');
 
 function showBootError(err){
   const msg = String(err && err.message ? err.message : err);
@@ -2372,17 +2380,25 @@ async function boot(){
     bootScreen.classList.add('hide');
     setTimeout(() => bootScreen.remove(), 350);
 
-    loadIndex().then(async info => {
-      indexInfo = info;
-      await ensureLearnedWordsLoaded();
-      renderAll();
-      renderSourceCard();
-    }).catch(err => console.warn('[索引加载失败]', err.message));
+    /* 只有超过 24 小时才检查一次索引 */
+    if (shouldCheckIndex()){
+      markIndexChecked();
+      console.log('[词库] 检查索引更新（超过 24 小时）');
+      loadIndex().then(async info => {
+        indexInfo = info;
+        await ensureLearnedWordsLoaded();
+        renderAll();
+        renderSourceCard();
+      }).catch(err => console.warn('[索引加载失败]', err.message));
+    } else {
+      console.log('[词库] 索引缓存未过期（24 小时内已检查过）');
+    }
     return;
   }
 
   try {
     indexInfo = await loadIndex();
+    markIndexChecked();
     console.log(`[词库] 索引加载完成，共 ${indexInfo.files.length} 批 / ${indexInfo.total} 词`);
 
     const preload = Math.min(PRELOAD_BATCHES, indexInfo.files.length);
